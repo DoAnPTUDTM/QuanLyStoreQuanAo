@@ -8,7 +8,7 @@ namespace GUI.SalesGUI
 {
     public partial class frmMainSales : Form
     {
-        frmSales fSales = new frmSales();
+        frmSales fSales = new frmSales("0911222333");
         frmProducts fProducts = new frmProducts();
         frmBill fBill = new frmBill();
         frmHomeSales fHomeSales = new frmHomeSales();

@@ -26,6 +26,8 @@ namespace GUI
             //Application.Run(new frmLogin());
             //Application.Run(new frmMainAdmin());
             Application.Run(new frmMainSales());
+            //Application.Run(new frmSales());
+
         }
     }
 }
