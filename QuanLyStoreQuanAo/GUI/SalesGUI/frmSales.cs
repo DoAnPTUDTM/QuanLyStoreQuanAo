@@ -14,6 +14,7 @@ using System.Windows.Forms;
 using UI;
 using ZXing;
 using System.Runtime.CompilerServices;
+using System.Text.RegularExpressions;
 
 namespace GUI.SalesGUI
 {
@@ -131,6 +132,113 @@ namespace GUI.SalesGUI
             lbHoTenNV.Text = nhanvien.HoTen;
         }
 
+        //private void BtnThanhToan_Click(object sender, EventArgs e)
+        //{
+        //    try
+        //    {
+        //        if (guna2DataGridView1.RowCount == 0)
+        //        {
+        //            MessageBox.Show("Không có sản phẩm nào để thanh toán !!!");
+        //            return;
+        //        }
+
+        //        if (string.IsNullOrEmpty(txtTienKhachDua.Text))
+        //        {
+        //            MessageBox.Show("Nhập tiền khách đưa vào !!!");
+        //            return;
+        //        }
+
+        //        if (lbTienThoi.Text == "Không đủ để thanh toán")
+        //        {
+        //            MessageBox.Show("Không đủ tiền để thanh toán !!!");
+        //            return;
+        //        }
+
+        //        hd.MaHoaDon = TaoMaHoaDonAuto();
+        //        hd.NgayXuatHoaDon = DateTime.Now;
+        //        hd.TongTien = int.Parse(lbTotal.Text.Replace(" VNĐ", "").Replace(",", ""));
+        //        //hd.MaNhanVien = _manv;
+        //        hd.MaNhanVien = "NV001"; // Lấy mã nhân viên login
+        //        hd.TrangThai = true;
+
+        //        //Kiểm tra SDT  
+        //        if (string.IsNullOrEmpty(txtPhone.Text) == false)
+        //        {
+        //            bool kt = khachhang_bll.CheckSDTKH(txtPhone.Text);
+        //            if (kt)
+        //            {
+        //                hd.MaKhachHang = khachhang_bll.GetMaKHBySDT(txtPhone.Text);
+        //            }
+        //            else
+        //            {
+        //                KhachHang kh = new KhachHang();
+        //                string makh = TaoMaKhachHangAuto();
+        //                hd.MaKhachHang = makh;
+        //                kh.MaKhachHang = makh;
+        //                kh.HoTen = string.Empty;
+        //                kh.Email = string.Empty;
+        //                kh.MatKhau = string.Empty;
+        //                kh.SoDienThoai = txtPhone.Text;
+
+        //                bool kq = khachhang_bll.AddKhachHang(kh);
+        //                if(kq)
+        //                {
+        //                    // Tạo hóa đơn
+        //                    bool kq1 = hoadon_bll.AddHoaDon(hd);
+        //                    if (kq1)
+        //                    {
+
+        //                        foreach (DataGridViewRow item in guna2DataGridView1.Rows)
+        //                        {
+
+        //                            ChiTietHoaDon cthd = new ChiTietHoaDon();
+
+        //                            string MaSP = sanpham_bll.GetMaSPByTenSP(item.Cells["TenSP"].Value.ToString());
+        //                            cthd.MaHoaDon = hd.MaHoaDon;
+        //                            cthd.MaSanPham = MaSP;
+        //                            cthd.SoLuong = int.Parse(item.Cells["SoLuong"].Value.ToString());
+        //                            cthd.DonGia = int.Parse(item.Cells["GiaSP"].Value.ToString().Replace(" VNĐ", "").Replace(",", ""));
+        //                            cthd.ThanhTien = int.Parse(item.Cells["SoTien"].Value.ToString().Replace(" VNĐ", "").Replace(",", ""));
+
+        //                            //Thêm chi tiết hóa đơn
+        //                            chitiethoadon_bll.AddChiTietHoaDon(cthd);
+        //                            sanpham_bll.CapNhatSoLuongTon(MaSP, int.Parse(item.Cells["SoLuong"].Value.ToString()));
+        //                        }
+
+
+        //                        guna2DataGridView1.Rows.Clear();
+        //                        lbTotal.Text = lbTotalTemp.Text = "0 VNĐ";
+
+        //                        _mahd = hd.MaHoaDon;
+        //                        exportBill();
+        //                        MessageBox.Show("Thanh toán sản phẩm thành công!!!");
+        //                        LoadAllSanPham();
+        //                        resetInput();
+        //                    }
+        //                    else
+        //                    {
+        //                        MessageBox.Show("Thanh toán không thành công !!!");
+        //                    }
+        //                }
+        //                else
+        //                {
+        //                    MessageBox.Show("Tạo khách hàng thất bại !!!");
+        //                }    
+        //            }
+        //        }
+        //        else
+        //        {
+        //            MessageBox.Show("Nhập số điện thoại vào !!!");
+        //            return;
+        //        }
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        MessageBox.Show($"Thanh toán không thành công !!!\nLỗi: {ex.Message}");
+        //    }
+
+        //}
+
         private void BtnThanhToan_Click(object sender, EventArgs e)
         {
             try
@@ -153,88 +261,103 @@ namespace GUI.SalesGUI
                     return;
                 }
 
+                if (!int.TryParse(lbTotal.Text.Replace(" VNĐ", "").Replace(",", ""), out int tongTien))
+                {
+                    MessageBox.Show("Tổng tiền không hợp lệ!");
+                    return;
+                }
+
+                if (string.IsNullOrEmpty(txtPhone.Text) || !Regex.IsMatch(txtPhone.Text, @"^\d{10,11}$"))
+                {
+                    MessageBox.Show("Số điện thoại không hợp lệ!");
+                    return;
+                }
+
                 hd.MaHoaDon = TaoMaHoaDonAuto();
                 hd.NgayXuatHoaDon = DateTime.Now;
-                hd.TongTien = int.Parse(lbTotal.Text.Replace(" VNĐ", "").Replace(",", ""));
-                hd.MaNhanVien = _manv;
-                //hd.MaNhanVien = "NV001"; // Lấy mã nhân viên login
+                hd.TongTien = tongTien;
+                //hd.MaNhanVien = _manv;
+                hd.MaNhanVien = "NV001"; // Lấy mã nhân viên từ hệ thống đăng nhập
                 hd.TrangThai = true;
 
-                //Kiểm tra SDT  
-                if (!string.IsNullOrEmpty(txtPhone.Text))
+                // Kiểm tra và tạo khách hàng nếu cần
+                if (!khachhang_bll.CheckSDTKH(txtPhone.Text))
                 {
-                    if (khachhang_bll.CheckSDTKH(txtPhone.Text))
+                    if (!TaoKhachHangMoi(txtPhone.Text, out string maKhachHang))
                     {
-                        hd.MaKhachHang = khachhang_bll.GetMaKHBySDT(txtPhone.Text);
+                        MessageBox.Show("Tạo khách hàng thất bại !!!");
+                        return;
                     }
-                    else
-                    {
-                        KhachHang kh = new KhachHang();
-                        string makh = TaoMaKhachHangAuto();
-                        hd.MaKhachHang = makh;
-                        kh.MaKhachHang = makh;
-                        kh.HoTen = string.Empty;
-                        kh.Email = string.Empty;
-                        kh.MatKhau = string.Empty;
-                        kh.SoDienThoai = txtPhone.Text;
-
-                        bool kq = khachhang_bll.AddKhachHang(kh);
-                        if(kq)
-                        {
-                            // Tạo hóa đơn
-                            bool kq1 = hoadon_bll.AddHoaDon(hd);
-                            if (kq1)
-                            {
-
-                                foreach (DataGridViewRow item in guna2DataGridView1.Rows)
-                                {
-
-                                    ChiTietHoaDon cthd = new ChiTietHoaDon();
-
-                                    string MaSP = sanpham_bll.GetMaSPByTenSP(item.Cells["TenSP"].Value.ToString());
-                                    cthd.MaHoaDon = hd.MaHoaDon;
-                                    cthd.MaSanPham = MaSP;
-                                    cthd.SoLuong = int.Parse(item.Cells["SoLuong"].Value.ToString());
-                                    cthd.DonGia = int.Parse(item.Cells["GiaSP"].Value.ToString().Replace(" VNĐ", "").Replace(",", ""));
-                                    cthd.ThanhTien = int.Parse(item.Cells["SoTien"].Value.ToString().Replace(" VNĐ", "").Replace(",", ""));
-
-                                    //Thêm chi tiết hóa đơn
-                                    chitiethoadon_bll.AddChiTietHoaDon(cthd);
-                                    sanpham_bll.CapNhatSoLuongTon(MaSP, int.Parse(item.Cells["SoLuong"].Value.ToString()));
-                                }
-
-
-                                guna2DataGridView1.Rows.Clear();
-                                lbTotal.Text = lbTotalTemp.Text = "0 VNĐ";
-
-                                _mahd = hd.MaHoaDon;
-                                exportBill();
-                                MessageBox.Show("Thanh toán sản phẩm thành công!!!");
-                                LoadAllSanPham();
-                                resetInput();
-                            }
-                            else
-                            {
-                                MessageBox.Show("Thanh toán không thành công !!!");
-                            }
-                        }
-                        else
-                        {
-                            MessageBox.Show("Tạo khách hàng thất bại !!!");
-                        }    
-                    }
+                    hd.MaKhachHang = maKhachHang;
                 }
                 else
                 {
-                    MessageBox.Show("Nhập số điện thoại vào !!!");
-                    return;
+                    hd.MaKhachHang = khachhang_bll.GetMaKHBySDT(txtPhone.Text);
+                }
+
+                if (hoadon_bll.AddHoaDon(hd))
+                {
+                    foreach (DataGridViewRow item in guna2DataGridView1.Rows)
+                    {
+                        ChiTietHoaDon cthd = new ChiTietHoaDon
+                        {
+                            MaHoaDon = hd.MaHoaDon,
+                            MaSanPham = sanpham_bll.GetMaSPByTenSP(item.Cells["TenSP"].Value.ToString()),
+                            SoLuong = int.Parse(item.Cells["SoLuong"].Value.ToString()),
+                            DonGia = int.Parse(item.Cells["GiaSP"].Value.ToString().Replace(" VNĐ", "").Replace(",", "")),
+                            ThanhTien = int.Parse(item.Cells["SoTien"].Value.ToString().Replace(" VNĐ", "").Replace(",", ""))
+                        };
+
+                        chitiethoadon_bll.AddChiTietHoaDon(cthd);
+                        sanpham_bll.CapNhatSoLuongTon(cthd.MaSanPham, cthd?.SoLuong ?? 0);
+                    }
+
+                    _mahd = hd.MaHoaDon;
+                    exportBill();
+                    MessageBox.Show("Thanh toán sản phẩm thành công!!!");
+                    LoadAllSanPham();
+                    resetInput();
+                }
+                else
+                {
+                    MessageBox.Show("Thanh toán không thành công !!!");
                 }
             }
             catch (Exception ex)
             {
                 MessageBox.Show($"Thanh toán không thành công !!!\nLỗi: {ex.Message}");
             }
+        }
 
+        //Tạo khách hàng mới
+        private bool TaoKhachHangMoi(string soDienThoai, out string maKhachHang)
+        {
+            try
+            {
+                // Tạo mã khách hàng tự động
+                maKhachHang = TaoMaKhachHangAuto();
+
+                // Tạo đối tượng khách hàng mới
+                KhachHang khachHang = new KhachHang
+                {
+                    MaKhachHang = maKhachHang,
+                    SoDienThoai = soDienThoai,
+                    HoTen = string.Empty, // Có thể yêu cầu nhập thông tin khác nếu cần
+                    Email = string.Empty,
+                    MatKhau = string.Empty
+                };
+
+                // Thêm khách hàng vào database
+                bool ketQua = khachhang_bll.AddKhachHang(khachHang);
+
+                return ketQua; // Trả về true nếu thêm thành công
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Không thể tạo khách hàng mới !!!\nLỗi: {ex.Message}");
+                maKhachHang = null;
+                return false; // Trả về false nếu có lỗi
+            }
         }
 
         private void TxtTienKhachDua_TextChanged(object sender, EventArgs e)
