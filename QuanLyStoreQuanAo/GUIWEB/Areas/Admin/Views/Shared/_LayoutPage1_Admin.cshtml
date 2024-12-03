@@ -1,0 +1,178 @@
+﻿
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>@ViewBag.Title</title>
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="~/Areas/Admin/Data/imgs/logo2.jpg">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Additional CSS -->
+    <link href="~/assets_admin/vendors/bootstrap-datepicker/bootstrap-datepicker.min.css" rel="stylesheet">
+    <link href="~/assets_admin/css/app.min.css" rel="stylesheet">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f8f9fa; /* Nền sáng */
+        }
+
+        .header {
+            height: 150px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 30px;
+            background-color: #ffffff;
+            border-bottom: 1px solid #ddd;
+            position: fixed;
+            width: 100%;
+            z-index: 1000;
+        }
+
+        .logo img {
+            width: 140px;
+            height: 100px;
+            margin: auto;
+        }
+
+        .side-nav {
+            width: 250px; /* Tăng chiều rộng sidebar */
+            position: fixed;
+            top: 100px;
+            bottom: 0;
+            background-color: #ffffff; /* Nền sáng */
+            border-right: 1px solid #ddd;
+            color: #333;
+            overflow-y: auto;
+            z-index: 100;
+        }
+
+        .side-nav-menu {
+            list-style: none;
+            padding: 0;
+            margin-top: 100px;
+        }
+
+            .side-nav-menu .nav-item {
+                padding: 15px 25px; /* Căn chỉnh nội dung */
+                transition: background-color 0.3s, color 0.3s;
+            }
+
+                .side-nav-menu .nav-item a {
+                    text-decoration: none;
+                    color: #333;
+                    display: flex;
+                    align-items: center;
+                }
+
+                    .side-nav-menu .nav-item a i {
+                        margin-right: 15px; /* Căn chỉnh icon */
+                        font-size: 20px;
+                    }
+
+                .side-nav-menu .nav-item:hover {
+                    background-color: #007bff; /* Hover màu xanh */
+                    color: #fff;
+                }
+
+                    .side-nav-menu .nav-item:hover a {
+                        color: #fff; /* Đổi màu chữ khi hover */
+                    }
+
+        .main-content {
+            margin-top: 140px;
+            margin-left: 240px;
+            padding: 20px;
+            background-color: #f8f9fa;
+            min-height: 100vh;
+        }
+
+        .avatar-icon {
+            font-size: 24px;
+            color: #333;
+        }
+
+        .dropdown-menu {
+            min-width: 250px;
+        }
+
+        .pointer {
+            display: inline-block;
+            text-align: center;
+        }
+
+        .avatar {
+            font-size: 24px; /* Kích thước icon */
+            margin-bottom: 5px; /* Khoảng cách giữa icon và chữ */
+        }
+
+        .user-greeting {
+            font-size: 14px; /* Kích thước chữ */
+            color: #333; /* Màu chữ */
+            font-weight: bold;
+            display: block;
+            line-height: 24px; /* Căn chỉnh chữ theo chiều dọc */
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Section -->
+    <div class="header">
+        <div class="logo">
+            <a href="@Url.Action("Index","Home")">
+                <img src="~/Areas/Admin/Data/imgs/logo1.jpg" alt="Logo" style="width: 200px">
+            </a>
+        </div>
+
+        <div class="nav-wrap d-flex align-items-center">
+            <ul class="nav-left d-flex">
+            </ul>
+            <ul class="nav-right d-flex">
+                <li class="dropdown dropdown-animated scale-left">
+                    <div class="pointer" data-toggle="dropdown">
+                        <div class="avatar avatar-icon">
+                            <i class="fa fa-user"></i>
+                        </div>
+                        <div class="user-greeting">
+                            <span>Xin chào @Session["User"]</span>
+                        </div>
+                    </div>
+                    <div class="dropdown-menu pop-profile">
+                        <a href="@Url.Action("Info", "Profile", new { UserName = Session["User"] })" class="dropdown-item"><i class="anticon anticon-user m-r-10"></i>Personal Profile</a>
+                        <a href="@Url.Action("Logout", "Account", new { area = "" })" class="dropdown-item"><i class="anticon anticon-logout m-r-10"></i>Logout</a>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Sidebar Navigation -->
+    <div class="side-nav">
+        <ul class="side-nav-menu">
+            <li class="nav-item"><a href="@Url.Action("Dashboard","Home")"><i class="anticon anticon-dashboard"></i>Dashboard</a></li>
+            <li class="nav-item"><a href="@Url.Action("Index","DonHang")"><i class="anticon anticon-shopping-cart"></i>Quản lý đơn hàng</a></li>
+            <li class="nav-item"><a href="@Url.Action("SanPham","SanPham")"><i class="anticon anticon-appstore"></i>Quản lý sản phẩm</a></li>
+            <li class="nav-item"><a href="@Url.Action("DanhMucSanPham","SanPham")"><i class="anticon anticon-tags"></i>Quản lý danh mục sản phẩm</a></li>
+            <li class="nav-item"><a href="@Url.Action("Index","KhachHang")"><i class="anticon anticon-user"></i>Quản lý khách hàng</a></li>
+            <li class="nav-item"><a href="@Url.Action("Index","NhanVien")"><i class="anticon anticon-team"></i>Quản lý nhân viên</a></li>
+        </ul>
+    </div>
+
+    <!-- Main Content Area -->
+    <div class="main-content">
+        @RenderBody()
+    </div>
+
+    <!-- JavaScript Files -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="~/assets_admin/js/vendors.min.js"></script>
+    <script src="~/assets_admin/js/app.min.js"></script>
+</body>
+</html>

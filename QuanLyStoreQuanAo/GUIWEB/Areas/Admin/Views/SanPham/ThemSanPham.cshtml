@@ -1,0 +1,75 @@
+﻿@model DTO.SanPhamDTO
+@{
+    ViewBag.Title = "Thêm Sản Phẩm Mới";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutPage1_Admin.cshtml";
+}
+
+<div class="card">
+    <div class="card-body" style="margin-top: 60px">
+        <h2 class="my-4 text-center">Thêm Sản Phẩm Mới</h2>
+
+        @using (Html.BeginForm("ThemSanPham", "SanPham", FormMethod.Post, new { enctype = "multipart/form-data", @class = "form-horizontal" }))
+        {
+            @Html.AntiForgeryToken()
+            <div class="row">
+                <div class="col-md-8 offset-md-2">
+
+                    <!-- Tên sản phẩm -->
+                    <div class="form-group mb-3">
+                        @Html.LabelFor(m => m.TenSanPham, "Tên sản phẩm:", htmlAttributes: new { @class = "form-label" })
+                        @Html.TextBoxFor(m => m.TenSanPham, new { @class = "form-control", @placeholder = "Nhập tên sản phẩm", required = "required" })
+                        @Html.ValidationMessageFor(m => m.TenSanPham, "", new { @class = "text-danger" })
+                    </div>
+
+                    <!-- Danh mục -->
+                    <div class="form-group mb-3">
+                        @Html.LabelFor(m => m.MaDanhMuc, "Danh mục:", htmlAttributes: new { @class = "form-label" })
+                        @Html.DropDownListFor(m => m.MaDanhMuc, (IEnumerable<SelectListItem>)ViewBag.DanhMucList, "Chọn danh mục", new { @class = "form-control", required = "required" })
+                        @Html.ValidationMessageFor(m => m.MaDanhMuc, "", new { @class = "text-danger" })
+                    </div>
+
+
+                    <!-- Số lượng tồn -->
+                    <div class="form-group mb-3">
+                        @Html.LabelFor(m => m.SoLuongTon, "Số lượng tồn:", htmlAttributes: new { @class = "form-label" })
+                        @Html.TextBoxFor(m => m.SoLuongTon, new { @class = "form-control", @placeholder = "Nhập số lượng tồn", type = "number", required = "required", min = "0" })
+                        @Html.ValidationMessageFor(m => m.SoLuongTon, "", new { @class = "text-danger" })
+                    </div>
+
+                    <!-- Giá bán -->
+                    <div class="form-group mb-3">
+                        @Html.LabelFor(m => m.GiaBan, "Giá bán:", htmlAttributes: new { @class = "form-label" })
+                        @Html.TextBoxFor(m => m.GiaBan, new { @class = "form-control", @placeholder = "Nhập giá bán", type = "number", required = "required", min = "0" })
+                        @Html.ValidationMessageFor(m => m.GiaBan, "", new { @class = "text-danger" })
+                    </div>
+
+                    <!-- Hãng sản xuất -->
+                    <div class="form-group mb-3">
+                        @Html.LabelFor(m => m.HangSanXuat, "Hãng sản xuất:", htmlAttributes: new { @class = "form-label" })
+                        @Html.TextBoxFor(m => m.HangSanXuat, new { @class = "form-control", @placeholder = "Nhập hãng sản xuất", required = "required" })
+                        @Html.ValidationMessageFor(m => m.HangSanXuat, "", new { @class = "text-danger" })
+                    </div>
+
+                    <!-- Mô tả -->
+                    <div class="form-group mb-3">
+                        @Html.LabelFor(m => m.MoTa, "Mô tả:", htmlAttributes: new { @class = "form-label" })
+                        @Html.TextAreaFor(m => m.MoTa, new { @class = "form-control", @placeholder = "Nhập mô tả sản phẩm", rows = "3" })
+                        @Html.ValidationMessageFor(m => m.MoTa, "", new { @class = "text-danger" })
+                    </div>
+
+                    <!-- Hình ảnh sản phẩm -->
+                    <div class="form-group mb-3">
+                        <label for="hinhAnhFiles" class="form-label">Hình ảnh sản phẩm:</label>
+                        <input type="file" name="hinhAnhFiles" id="hinhAnhFiles" multiple="multiple" class="form-control" />
+                    </div>
+
+                    <!-- Nút hành động -->
+                    <div class="d-grid gap-2">
+                        <button type="submit" class="btn btn-primary btn-block">Thêm Sản Phẩm</button>
+                        <a href="@Url.Action("SanPham", "SanPham")" class="btn btn-secondary mt-2">Quay lại</a>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>

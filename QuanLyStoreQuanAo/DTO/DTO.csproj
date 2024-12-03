@@ -53,6 +53,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>QLSHOPQUANAO.dbml</DependentUpon>
     </Compile>
+    <Compile Include="SanPhamDTO.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />

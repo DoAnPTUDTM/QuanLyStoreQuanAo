@@ -37,6 +37,7 @@ namespace GUIWEB.Controllers
             return View();
         }
 
+        //[HttpPost]
         //public ActionResult Register(FormCollection form)
         //{
         //    var khachHang = new KhachHang
@@ -45,7 +46,7 @@ namespace GUIWEB.Controllers
         //        HoTen = form["HoTen"],
         //        Email = form["Email"],
         //        SoDienThoai = form["SoDienThoai"],
-        //        MatKhau= form["MatKhau"],
+        //        MatKhau = form["MatKhau"],
 
         //    };
 
@@ -53,19 +54,55 @@ namespace GUIWEB.Controllers
         //    if (confirmPassword != khachHang.MatKhau)
         //    {
         //        ModelState.AddModelError("ConfirmPassword", "Mật khẩu không khớp.");
-        //      return View();
+        //        return View();
         //    }
-        //   string kq= bus.register(khachHang);
+        //    string kq = bus.register(khachHang);
         //    if (kq == "true")
         //    {
         //        return RedirectToAction("Customer", "SignIn");
         //    }
-        //    else if(kq == "number") 
+        //    else if (kq == "number")
         //    {
         //        ModelState.AddModelError("SoDienThoai", "Số điện thoại không hợp lệ");
         //        return View();
         //    }
         //}
+
+        [HttpPost]
+        public ActionResult Register(FormCollection form)
+        {
+            var khachHang = new KhachHang
+            {
+                HoTen = form["HoTen"],
+                Email = form["Email"],
+                SoDienThoai = form["SoDienThoai"],
+                MatKhau = form["MatKhau"],
+            };
+
+            var confirmPassword = form["confirmpassword"];
+            if (confirmPassword != khachHang.MatKhau)
+            {
+                ModelState.AddModelError("ConfirmPassword", "Mật khẩu không khớp.");
+                return View();
+            }
+
+            string kq = bus.register(khachHang);
+
+            if (kq == "true")
+            {
+                return RedirectToAction("SignIn", "Customer");
+            }
+            else if (kq == "number")
+            {
+                ModelState.AddModelError("SoDienThoai", "Số điện thoại không hợp lệ");
+                return View();
+            }
+
+            // Xử lý trường hợp không thỏa mãn điều kiện nào
+            ModelState.AddModelError("", "Đã xảy ra lỗi không xác định.");
+            return View();
+        }
+
 
 
     }

@@ -1,0 +1,34 @@
+﻿@model DTO.NhanVien
+@{
+    ViewBag.Title = "Xác nhận xóa nhân viên";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutPage1_Admin.cshtml";
+}
+
+<div class="card">
+    <div class="card-body" style="margin-top: 60px">
+        <h2 class="my-4 text-center">Xác nhận xóa nhân viên</h2>
+
+        <dl class="row">
+            <dt class="col-sm-3">Họ Tên:</dt>
+            <dd class="col-sm-9">@Model.HoTen</dd>
+
+            <dt class="col-sm-3">Địa chỉ email:</dt>
+            <dd class="col-sm-9">@Model.Email</dd>
+
+            <dt class="col-sm-3">Số điện thoại:</dt>
+            <dd class="col-sm-9">@Model.SoDienThoai</dd>
+
+            <dt class="col-sm-3">Vai trò:</dt>
+            <dd class="col-sm-9">@Model.VaiTro</dd>
+        </dl>
+
+        <form asp-action="XacNhanXoaNhanVien" method="post">
+            @Html.AntiForgeryToken()
+            <input type="hidden" name="id" value="@Model.MaNhanVien" />
+            <div class="d-grid gap-2">
+                <button type="submit" class="btn btn-danger">Xóa nhân viên</button>
+                <a href="@Url.Action("Index", "NhanVien")" class="btn btn-secondary">Hủy bỏ</a>
+            </div>
+        </form>
+    </div>
+</div>

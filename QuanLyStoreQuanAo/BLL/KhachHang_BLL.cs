@@ -111,5 +111,45 @@ namespace BLL
             }
 
         }
+        //Lấy khach hang by id
+        public KhachHang GetKHById(string id)
+        {
+            return dal.GetKhById(id);
+        }
+        //Lấy danh sách khách hàng
+        public List<KhachHang> GetDSKH()
+        {
+            return dal.GetDSKH();
+        }
+
+        //Thêm khách hàng
+        public bool ThemKH(KhachHang kh)
+        {
+            if(kh == null) { return false; }
+            dal.ThemKHMoi(kh);
+            return true;
+        }
+        //Sửa khách hàng
+        public bool SuaKH(KhachHang kh)
+        {
+            if (kh == null) { return false; }
+            dal.SuaKH(kh);
+            return true;
+        }
+        //Xóa khách hàng
+        public bool XoaKH(string makh)
+        {
+            if (makh == null)
+            {
+                return false;
+            }
+            dal.XoaKhachHang(makh);
+            return true;
+        }
+        //Search khách hàng
+        public List<KhachHang> SearchKhachHangByHoTen(string search)
+        {
+            return dal.SearchKhachHangByHoTen(search);
+        }
     }
 }

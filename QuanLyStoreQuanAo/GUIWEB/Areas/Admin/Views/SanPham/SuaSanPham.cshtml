@@ -1,0 +1,83 @@
+﻿@model DTO.SanPhamDTO
+@{
+    ViewBag.Title = "Sửa Sản Phẩm";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutPage1_Admin.cshtml";
+}
+
+<div class="card">
+    <div class="card-body" style="margin-top: 60px">
+        <h2 class="my-4 text-center">Sửa Sản Phẩm</h2>
+
+        @using (Html.BeginForm("SuaSanPham", "SanPham", FormMethod.Post, new { enctype = "multipart/form-data" }))
+        {
+            @Html.AntiForgeryToken()
+            @Html.HiddenFor(m => m.MaSanPham)
+            <div class="row">
+                <div class="col-md-8 offset-md-2">
+
+                    @Html.HiddenFor(m => m.MaSanPham)
+
+                    <div class="form-group mb-3">
+                        @Html.LabelFor(m => m.TenSanPham, "Tên sản phẩm:", new { @class = "form-label" })
+                        @Html.TextBoxFor(m => m.TenSanPham, new { @class = "form-control", @placeholder = "Nhập tên sản phẩm", required = "required" })
+                        @Html.ValidationMessageFor(m => m.TenSanPham, "", new { @class = "text-danger" })
+                    </div>
+
+                    <div class="form-group mb-3">
+                        @Html.LabelFor(m => m.MaDanhMuc, "Danh mục:", new { @class = "form-label" })
+                        @Html.DropDownListFor(m => m.MaDanhMuc, (IEnumerable<SelectListItem>)ViewBag.DanhMucList, "Chọn danh mục", new { @class = "form-control", required = "required" })
+                        @Html.ValidationMessageFor(m => m.MaDanhMuc, "", new { @class = "text-danger" })
+                    </div>
+
+                    <div class="form-group mb-3">
+                        @Html.LabelFor(m => m.GiaBan, "Giá bán:", new { @class = "form-label" })
+                        @Html.TextBoxFor(m => m.GiaBan, new { @class = "form-control", @placeholder = "Nhập giá bán", required = "required" })
+                        @Html.ValidationMessageFor(m => m.GiaBan, "", new { @class = "text-danger" })
+                    </div>
+
+                    <div class="form-group mb-3">
+                        @Html.LabelFor(m => m.SoLuongTon, "Số lượng tồn:", new { @class = "form-label" })
+                        @Html.TextBoxFor(m => m.SoLuongTon, new { @class = "form-control", @placeholder = "Nhập số lượng tồn", required = "required" })
+                        @Html.ValidationMessageFor(m => m.SoLuongTon, "", new { @class = "text-danger" })
+                    </div>
+
+                    <div class="form-group mb-3">
+                        @Html.LabelFor(m => m.HangSanXuat, "Hãng sản xuất:", new { @class = "form-label" })
+                        @Html.TextBoxFor(m => m.HangSanXuat, new { @class = "form-control", @placeholder = "Nhập hãng sản xuất", required = "required" })
+                        @Html.ValidationMessageFor(m => m.HangSanXuat, "", new { @class = "text-danger" })
+                    </div>
+
+                    <div class="form-group mb-3">
+                        @Html.LabelFor(m => m.MoTa, "Mô tả:", new { @class = "form-label" })
+                        @Html.TextAreaFor(m => m.MoTa, new { @class = "form-control", rows = 4, @placeholder = "Nhập mô tả sản phẩm", required = "required" })
+                        @Html.ValidationMessageFor(m => m.MoTa, "", new { @class = "text-danger" })
+                    </div>
+
+                    <div class="form-group mb-3">
+                        <label class="form-label">Hình ảnh hiện tại:</label>
+                        <div>
+                            @if (ViewBag.HinhAnhList != null)
+                            {
+                                foreach (var hinhAnh in ViewBag.HinhAnhList)
+                                {
+                                    <img src="~/Areas/Admin/Data/imgs/@hinhAnh.DuongDanHinhAnh" alt="Hình ảnh sản phẩm" class="img-thumbnail" style="width: 100px; height: 100px; margin-right: 10px;">
+                                }
+                            }
+                        </div>
+                    </div>
+
+                    <div class="form-group mb-3">
+                        @Html.Label("Tải lên hình ảnh mới:", new { @class = "form-label" })
+                        <input type="file" name="hinhAnhFiles" multiple class="form-control" />
+                    </div>
+
+                    <div class="d-grid gap-2">
+                        <button type="submit" class="btn btn-primary btn-block">Lưu Thay Đổi</button>
+                        <a href="@Url.Action("SanPham", "SanPham")" class="btn btn-secondary mt-2">Quay lại</a>
+                    </div>
+
+                </div>
+            </div>
+        }
+    </div>
+</div>

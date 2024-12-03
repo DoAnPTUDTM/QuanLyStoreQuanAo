@@ -63,7 +63,7 @@ namespace DTO
     #endregion
 		
 		public QLSHOPQUANAODataContext() : 
-				base(global::DTO.Properties.Settings.Default.QLSHOPQUANAOConnectionString2, mappingSource)
+				base(global::DTO.Properties.Settings.Default.QLSHOPQUANAOConnectionString, mappingSource)
 		{
 			OnCreated();
 		}

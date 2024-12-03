@@ -26,33 +26,11 @@ namespace DTO.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=LUONG\\SQLEXPRESS;Initial Catalog=QLSHOPQUANAO;Integrated Security=Tru" +
-            "e;TrustServerCertificate=True")]
-        public string QLSHOPQUANAOConnectionString1 {
-            get {
-                return ((string)(this["QLSHOPQUANAOConnectionString1"]));
-            }
-        }
-        
-        [global::System.Configuration.ApplicationScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=LUONG\\SQLEXPRESS;Initial Catalog=QLSHOPQUANAO;Integrated Security=Tru" +
-            "e;TrustServerCertificate=True")]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=MSI-GF63-THIN11\\SQLEXPRESS;Initial Catalog=QLSHOPQUANAO;Integrated Se" +
+            "curity=True;TrustServerCertificate=True")]
         public string QLSHOPQUANAOConnectionString {
             get {
                 return ((string)(this["QLSHOPQUANAOConnectionString"]));
-            }
-        }
-        
-        [global::System.Configuration.ApplicationScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=LUONG\\SQLEXPRESS;Initial Catalog=QLSHOPQUANAO;Integrated Security=Tru" +
-            "e;Encrypt=True;TrustServerCertificate=True")]
-        public string QLSHOPQUANAOConnectionString2 {
-            get {
-                return ((string)(this["QLSHOPQUANAOConnectionString2"]));
             }
         }
     }

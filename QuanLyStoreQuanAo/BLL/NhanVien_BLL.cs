@@ -124,5 +124,44 @@ namespace BLL
             }
 
         }
+
+        //Get nhân viên by id
+        public NhanVien GetNVById(string id)
+        {
+            return dal.GetNVById(id); 
+        }
+        //Get DSNV
+        public List<NhanVien> GetDSNV()
+        {
+            return dal.GetDSNV();
+        }
+        //ThenNV
+        public bool ThemNV(NhanVien nv)
+        {
+            if (nv == null)
+            { return false; }
+            dal.ThemNVMoi(nv);
+            return true;
+        }
+        //SuaNV
+        public bool SuaNV(NhanVien nv)
+        {
+            if (nv == null) { return false; }
+            dal.SuaNV(nv);
+            return true;
+        }
+        //XoaNV
+        public bool XoaNV(string maNV)
+        {
+            if (maNV == null) { return false; }
+            dal.XoaNV(maNV);
+            return true;
+        }
+
+        //Tìm kiếm nhân viên bằng họ tên
+        public List<NhanVien> SearchKhachHangByHoTen(string search)
+        {
+            return dal.SearchKhachHangByHoTen(search);
+        }
     }
 }

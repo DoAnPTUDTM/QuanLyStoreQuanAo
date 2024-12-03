@@ -1,0 +1,75 @@
+﻿@model DTO.DonHang
+@{
+    ViewBag.Title = "Confirm Delete Customer";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutPage1_Admin.cshtml";
+}
+
+<div class="card">
+    <div class="card-body" style="margin-top: 60px">
+        <h2 class="my-4 text-center">Xác nhận xóa đơn hàng</h2>
+
+        <dl class="row">
+            <dt class="col-sm-3">Mã đơn hàng:</dt>
+            <dd class="col-sm-9">@Model.MaDonHang</dd>
+
+            <dt class="col-sm-3">Họ Tên:</dt>
+            <dd class="col-sm-9">@Model.KhachHang.HoTen</dd>
+
+            <dt class="col-sm-3">Ngày Đặt:</dt>
+            <dd class="col-sm-9">@(Model.NgayDatHang.HasValue ? Model.NgayDatHang.Value.ToString("dd/MM/yyyy") : "N/A")</dd>
+
+            <dt class="col-sm-3">Trạng thái:</dt>
+            <dd class="col-sm-9">
+                @switch (Model.TrangThai)
+                {
+                    case "DaHuy":
+                        <text>Đã Hủy</text>
+                        break;
+                    case "DaNhan":
+                        <text>Đã Nhận</text>
+                        break;
+                    case "DaGiao":
+                        <text>Đã Giao</text>
+                        break;
+                    case "DangXuLy":
+                        <text>Đang Xử Lý</text>
+                        break;
+                    case "ChoXuLy":
+                        <text>Chờ Xử Lý</text>
+                        break;
+                    default:
+                        <text>N/A</text>
+                        break;
+                }
+             </dd>
+
+            <dt class="col-sm-3">Tông tiền:</dt>
+            <dd class="col-sm-9">@(Model.TongTien.HasValue ? Model.TongTien.Value.ToString("#,##0 VNĐ") : "0 VNĐ")</dd>
+
+            <dt class="col-sm-3">Phương thức thanh toán:</dt>
+            <dd class="col-sm-9">
+                @switch (Model.PhuongThucThanhToan)
+                {
+                    case "The":
+                        <text>Thẻ</text>
+                        break;
+                    case "TienMat":
+                        <text>Tiền mặt</text>
+                        break;
+                }
+            </dd>
+
+            <dt class="col-sm-3">Địa chỉ giao hàng:</dt>
+            <dd class="col-sm-9">@Model.DiaChiGiaoHang</dd>
+        </dl>
+
+        <form asp-action="XacNhanXoaDonHang" method="post">
+            @Html.AntiForgeryToken()
+            <input type="hidden" name="id" value="@Model.MaDonHang" />
+            <div class="d-grid gap-2">
+                <button type="submit" class="btn btn-danger">Xóa khách hàng</button>
+                <a href="@Url.Action("Index", "DonHang")" class="btn btn-secondary">Hủy bỏ</a>
+            </div>
+        </form>
+    </div>
+</div>
