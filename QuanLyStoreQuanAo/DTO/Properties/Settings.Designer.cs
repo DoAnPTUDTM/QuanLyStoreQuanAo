@@ -12,7 +12,7 @@ namespace DTO.Properties {
     
     
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "17.11.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "17.12.0.0")]
     internal sealed partial class Settings : global::System.Configuration.ApplicationSettingsBase {
         
         private static Settings defaultInstance = ((Settings)(global::System.Configuration.ApplicationSettingsBase.Synchronized(new Settings())));
@@ -26,8 +26,8 @@ namespace DTO.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=LUONG\\SQLEXPRESS;Initial Catalog=QLSHOPQUANAO;Integrated Security=Tru" +
-            "e;Encrypt=True;Trust Server Certificate=True")]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=MSI-GF63-THIN11\\SQLEXPRESS;Initial Catalog=QLSHOPQUANAO;Integrated Se" +
+            "curity=True")]
         public string QLSHOPQUANAOConnectionString {
             get {
                 return ((string)(this["QLSHOPQUANAOConnectionString"]));
@@ -37,11 +37,11 @@ namespace DTO.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=LUONG\\SQLEXPRESS;Initial Catalog=QLSHOPQUANAO;Integrated Security=Tru" +
-            "e;Encrypt=True;TrustServerCertificate=True")]
-        public string QLSHOPQUANAOConnectionString2 {
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=LAPTOP-4BRHSF8H;Initial Catalog=QLSHOPQUANAO;Integrated Security=True" +
+            ";Encrypt=False")]
+        public string QLSHOPQUANAOConnectionString1 {
             get {
-                return ((string)(this["QLSHOPQUANAOConnectionString2"]));
+                return ((string)(this["QLSHOPQUANAOConnectionString1"]));
             }
         }
     }

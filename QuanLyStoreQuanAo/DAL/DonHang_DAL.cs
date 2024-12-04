@@ -19,7 +19,7 @@ namespace DAL
         public int TinhSoLuongDHToday()
         {
             var dsdh = context.DonHangs.Where(d => d.NgayDatHang == DateTime.Now);
-            if (dsdh != null)
+            if(dsdh != null)
             {
                 return dsdh.Count();
             }
@@ -45,13 +45,13 @@ namespace DAL
         //Tính doanh thu trong ngày
         public int TinhDoanhThuNgay()
         {
-            var today = DateTime.Today;
-            var tomorrow = today.AddDays(1);
+            var today = DateTime.Today; 
+            var tomorrow = today.AddDays(1); 
 
-
+            
             var doanhThu = context.DonHangs
                                   .Where(d => d.NgayDatHang >= today && d.NgayDatHang < tomorrow)
-                                  .Sum(d => (int?)d.TongTien) ?? 0;
+                                  .Sum(d => (int?)d.TongTien) ?? 0; 
 
             return doanhThu;
         }
@@ -81,14 +81,14 @@ namespace DAL
         //Sua đơn hàng
         public bool SuaDonHang(DonHang dh)
         {
-            if (dh == null)
+            if(dh == null)
             {
                 return false;
             }
             else
             {
                 var donhangdb = context.DonHangs.FirstOrDefault(d => d.MaDonHang == dh.MaDonHang);
-                if (donhangdb == null)
+                if(donhangdb == null)
                 {
                     return false;
                 }
@@ -101,7 +101,7 @@ namespace DAL
 
                 context.SubmitChanges();
                 return true;
-            }
+            }    
         }
 
         //Xóa đơn hàng
@@ -126,7 +126,7 @@ namespace DAL
         //Lấy đơn hàng by id
         public DonHang GetDonHangById(string madh)
         {
-            if (madh == null)
+            if(madh == null)
             {
                 return null;
             }
@@ -134,11 +134,11 @@ namespace DAL
             {
                 var donhang = context.DonHangs.FirstOrDefault(d => d.MaDonHang.Equals(madh));
                 return donhang;
-            }
+            }    
         }
         public List<DonHang> SearchDonHangById(string search)
         {
-            if (string.IsNullOrEmpty(search)) return null;
+            if(string.IsNullOrEmpty(search)) return null;
             var donhangs = context.DonHangs.Where(d => d.MaDonHang.Contains(search)).ToList();
             return donhangs;
         }

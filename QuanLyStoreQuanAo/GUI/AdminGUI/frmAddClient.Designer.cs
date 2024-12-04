@@ -44,10 +44,6 @@
             this.lbFrmName = new ReaLTaiizor.Controls.BigLabel();
             this.guna2ControlBox1 = new Guna.UI2.WinForms.Guna2ControlBox();
             this.btnExit = new Guna.UI2.WinForms.Guna2ControlBox();
-            this.btnthoat = new Guna.UI2.WinForms.Guna2Button();
-            this.lblemail = new System.Windows.Forms.Label();
-            this.lblsdt = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
             this.guna2GradientPanel1.SuspendLayout();
             this.guna2GradientPanel3.SuspendLayout();
             this.guna2GradientPanel2.SuspendLayout();
@@ -68,10 +64,6 @@
             // guna2GradientPanel3
             // 
             this.guna2GradientPanel3.AutoScroll = true;
-            this.guna2GradientPanel3.Controls.Add(this.label1);
-            this.guna2GradientPanel3.Controls.Add(this.lblsdt);
-            this.guna2GradientPanel3.Controls.Add(this.lblemail);
-            this.guna2GradientPanel3.Controls.Add(this.btnthoat);
             this.guna2GradientPanel3.Controls.Add(this.btnFinish);
             this.guna2GradientPanel3.Controls.Add(this.txtEmail);
             this.guna2GradientPanel3.Controls.Add(this.txtMK);
@@ -98,7 +90,7 @@
             this.btnFinish.FillColor = System.Drawing.SystemColors.MenuHighlight;
             this.btnFinish.Font = new System.Drawing.Font("Consolas", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnFinish.ForeColor = System.Drawing.Color.White;
-            this.btnFinish.Location = new System.Drawing.Point(528, 592);
+            this.btnFinish.Location = new System.Drawing.Point(501, 706);
             this.btnFinish.Name = "btnFinish";
             this.btnFinish.Size = new System.Drawing.Size(290, 69);
             this.btnFinish.TabIndex = 27;
@@ -116,7 +108,7 @@
             this.txtEmail.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtEmail.Font = new System.Drawing.Font("Consolas", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtEmail.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtEmail.Location = new System.Drawing.Point(227, 181);
+            this.txtEmail.Location = new System.Drawing.Point(227, 171);
             this.txtEmail.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.PasswordChar = '\0';
@@ -137,7 +129,7 @@
             this.txtMK.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtMK.Font = new System.Drawing.Font("Consolas", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtMK.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtMK.Location = new System.Drawing.Point(227, 441);
+            this.txtMK.Location = new System.Drawing.Point(227, 314);
             this.txtMK.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.txtMK.Name = "txtMK";
             this.txtMK.PasswordChar = '\0';
@@ -158,7 +150,7 @@
             this.txtSDT.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtSDT.Font = new System.Drawing.Font("Consolas", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtSDT.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtSDT.Location = new System.Drawing.Point(227, 315);
+            this.txtSDT.Location = new System.Drawing.Point(227, 466);
             this.txtSDT.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.txtSDT.Name = "txtSDT";
             this.txtSDT.PasswordChar = '\0';
@@ -179,7 +171,7 @@
             this.txtHoTen.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtHoTen.Font = new System.Drawing.Font("Consolas", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtHoTen.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtHoTen.Location = new System.Drawing.Point(227, 47);
+            this.txtHoTen.Location = new System.Drawing.Point(227, 31);
             this.txtHoTen.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.txtHoTen.Name = "txtHoTen";
             this.txtHoTen.PasswordChar = '\0';
@@ -201,7 +193,7 @@
             this.bigLabel14.BackColor = System.Drawing.Color.Transparent;
             this.bigLabel14.Font = new System.Drawing.Font("Consolas", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bigLabel14.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(80)))), ((int)(((byte)(80)))));
-            this.bigLabel14.Location = new System.Drawing.Point(16, 457);
+            this.bigLabel14.Location = new System.Drawing.Point(25, 330);
             this.bigLabel14.Name = "bigLabel14";
             this.bigLabel14.Size = new System.Drawing.Size(129, 27);
             this.bigLabel14.TabIndex = 0;
@@ -213,7 +205,7 @@
             this.bigLabel5.BackColor = System.Drawing.Color.Transparent;
             this.bigLabel5.Font = new System.Drawing.Font("Consolas", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bigLabel5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(80)))), ((int)(((byte)(80)))));
-            this.bigLabel5.Location = new System.Drawing.Point(25, 181);
+            this.bigLabel5.Location = new System.Drawing.Point(25, 187);
             this.bigLabel5.Name = "bigLabel5";
             this.bigLabel5.Size = new System.Drawing.Size(90, 27);
             this.bigLabel5.TabIndex = 0;
@@ -225,7 +217,7 @@
             this.bigLabel3.BackColor = System.Drawing.Color.Transparent;
             this.bigLabel3.Font = new System.Drawing.Font("Consolas", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bigLabel3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(80)))), ((int)(((byte)(80)))));
-            this.bigLabel3.Location = new System.Drawing.Point(2, 331);
+            this.bigLabel3.Location = new System.Drawing.Point(16, 482);
             this.bigLabel3.Name = "bigLabel3";
             this.bigLabel3.Size = new System.Drawing.Size(194, 27);
             this.bigLabel3.TabIndex = 0;
@@ -299,55 +291,6 @@
             this.btnExit.Size = new System.Drawing.Size(60, 49);
             this.btnExit.TabIndex = 2;
             // 
-            // btnthoat
-            // 
-            this.btnthoat.BorderRadius = 10;
-            this.btnthoat.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btnthoat.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btnthoat.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btnthoat.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnthoat.FillColor = System.Drawing.Color.Brown;
-            this.btnthoat.Font = new System.Drawing.Font("Consolas", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnthoat.ForeColor = System.Drawing.Color.White;
-            this.btnthoat.Location = new System.Drawing.Point(102, 592);
-            this.btnthoat.Name = "btnthoat";
-            this.btnthoat.Size = new System.Drawing.Size(290, 69);
-            this.btnthoat.TabIndex = 28;
-            this.btnthoat.Text = "Thoát ";
-            // 
-            // lblemail
-            // 
-            this.lblemail.AutoSize = true;
-            this.lblemail.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.lblemail.ForeColor = System.Drawing.Color.Red;
-            this.lblemail.Location = new System.Drawing.Point(223, 241);
-            this.lblemail.Name = "lblemail";
-            this.lblemail.Size = new System.Drawing.Size(165, 20);
-            this.lblemail.TabIndex = 29;
-            this.lblemail.Text = "Email không hợp lệ !!";
-            // 
-            // lblsdt
-            // 
-            this.lblsdt.AutoSize = true;
-            this.lblsdt.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.lblsdt.ForeColor = System.Drawing.Color.Red;
-            this.lblsdt.Location = new System.Drawing.Point(223, 372);
-            this.lblsdt.Name = "lblsdt";
-            this.lblsdt.Size = new System.Drawing.Size(220, 20);
-            this.lblsdt.TabIndex = 30;
-            this.lblsdt.Text = "Số điện thoại không hợp lệ !!";
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.label1.ForeColor = System.Drawing.Color.Red;
-            this.label1.Location = new System.Drawing.Point(263, 536);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(376, 29);
-            this.label1.TabIndex = 31;
-            this.label1.Text = "Vui lòng nhập đầy đủ thông tin !!";
-            // 
             // frmAddClient
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -386,9 +329,5 @@
         private ReaLTaiizor.Controls.BigLabel lbFrmName;
         private Guna.UI2.WinForms.Guna2ControlBox guna2ControlBox1;
         private Guna.UI2.WinForms.Guna2ControlBox btnExit;
-        private Guna.UI2.WinForms.Guna2Button btnthoat;
-        private System.Windows.Forms.Label lblemail;
-        private System.Windows.Forms.Label lblsdt;
-        private System.Windows.Forms.Label label1;
     }
 }

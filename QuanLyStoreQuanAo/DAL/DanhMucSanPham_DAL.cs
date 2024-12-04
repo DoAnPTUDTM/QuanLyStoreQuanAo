@@ -4,151 +4,106 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using DTO;
 
 namespace DAL
 {
     public class DanhMucSanPham_DAL
     {
-        QLSHOPQUANAODataContext context = new QLSHOPQUANAODataContext();
+        QLSHOPQUANAODataContext db = new QLSHOPQUANAODataContext();
         public DanhMucSanPham_DAL()
         {
 
         }
-
-        //Lấy danh mục sản phẩm by id
-        public DanhMucSanPham GetDanhMucSanPhamById(string id)
-        {
-            if (id == null)
-            {
-                return null;
-            }
-            else
-            {
-                var dm = context.DanhMucSanPhams.FirstOrDefault(d => d.MaDanhMuc == id);
-                if (dm == null)
-                {
-                    return null;
-                }
-                return dm;
-            }
-        }
-
-        //Lấy danh sách danh mục
-        public List<DanhMucSanPham> GetDanhSachDM()
-        {
-            return context.DanhMucSanPhams.Skip(1).ToList();
-        }
-
-        //Thêm danh mục sản phẩm
-        public bool ThemDanhMucSanPhamMoi(DanhMucSanPham dm)
-        {
-            if (dm == null)
-            {
-                return false;
-            }
-
-            try
-            {
-                dm.MaDanhMuc = TaoMaDMTuDong();
-                context.DanhMucSanPhams.InsertOnSubmit(dm);
-                context.SubmitChanges();
-                return true;
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine("Lỗi thêm danh mục sản phẩm: " + ex.Message);
-                return false;
-            }
-        }
-
-        //Hàm xóa sản phẩm
-        public bool XoaDanhMucSanPham(string MaDM)
-        {
-            if (string.IsNullOrEmpty(MaDM))
-            {
-                return false;
-        }
-
-            try
-            {
-                var danhmuc = context.DanhMucSanPhams.FirstOrDefault(dm => dm.MaDanhMuc == MaDM);
-                if (danhmuc == null)
-                {
-                    return false;
-                }
-                context.DanhMucSanPhams.DeleteOnSubmit(danhmuc);
-                context.SubmitChanges();
-                return true;
-
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine("Lỗi xóa danh mục sản phẩm: " + ex.Message);
-                return false;
-            }
-        }
-
-        public bool SuaDanhMucSanPham(DanhMucSanPham dm)
-        {
-            if (dm == null)
-            {
-                return false;
-            }
-
-            try
-            {
-                var dmdb = context.DanhMucSanPhams.FirstOrDefault(d => d.MaDanhMuc == dm.MaDanhMuc);
-                if (dmdb == null)
-                {
-                    return false; 
-                }
-
-                dmdb.TenDanhMuc = dm.TenDanhMuc;
-                dmdb.MoTa = dm.MoTa;
-                context.SubmitChanges();
-                return true;
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine("Lỗi sửa danh mục sản phẩm: " + ex.Message);
-                return false;
-            }
-        }
-
-        //Hàm Tạo Mã sản phẩm tự động
-        public string TaoMaDMTuDong()
-        {
-            try
-            {
-                var maDMDB = context.DanhMucSanPhams.OrderByDescending(m => m.MaDanhMuc)
-                                                  .Select(m => m.MaDanhMuc)
-                                                  .FirstOrDefault();
-
-                if (string.IsNullOrEmpty(maDMDB))
-                {
-                    return "DM001";
-                }
-                string phanSo = maDMDB.Substring(2);
-                int soMoi = int.Parse(phanSo) + 1;
-                return "DM" + soMoi.ToString("D3");
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine("Lỗi tạo mã danh mục sản phẩm tự động: " + ex.Message);
-                return null;
-            }
-        }
-
-        //Tìm kiếm danh mục theo tên danh mục
-        public List<DanhMucSanPham> SearchDanhMucByTenDanhMuc(string search)
-        {
-            if (search == null) return null;
-            return context.DanhMucSanPhams.Where(d => d.TenDanhMuc.Contains(search)).Skip(1).ToList();
-        }
+        //lấy toàn bộ danh mục sản phẩm
         public List<DanhMucSanPham> GetAllDanhMucSP()
         {
-            return context.DanhMucSanPhams.Select(d => d).ToList();
+            return db.DanhMucSanPhams.Select(d => d).ToList();
         }
+
+        //lấy danh mục theo mã danh mục
+        public List<DanhMucSanPham_DTO> getDanhMucSanPhamID(string pMaLSP)
+        {
+            var query = from lsp in db.DanhMucSanPhams where lsp.MaDanhMuc == pMaLSP select lsp;
+
+            var loaisanphams = query.ToList().ConvertAll(lsp => new DanhMucSanPham_DTO()
+            {
+                MaDanhMuc = lsp.MaDanhMuc,
+                TenDanhMuc = lsp.TenDanhMuc,
+                MoTa = lsp.MoTa
+            });
+
+            List<DanhMucSanPham_DTO> lst_lsp = loaisanphams.ToList();
+
+            return lst_lsp;
+        }
+
+        //láy danh mục sản phẩm theo tên
+        public List<DanhMucSanPham_DTO> getDanhMucSanPhamTen(string pValue)
+        {
+            var query = from lsp in db.DanhMucSanPhams where lsp.TenDanhMuc.Contains(pValue) select lsp;
+
+            var loaisanphams = query.ToList().ConvertAll(lsp => new DanhMucSanPham_DTO()
+            {
+                MaDanhMuc = lsp.MaDanhMuc,
+                TenDanhMuc = lsp.TenDanhMuc,
+                MoTa = lsp.MoTa
+            });
+
+            List<DanhMucSanPham_DTO> lst_lsp = loaisanphams.ToList();
+
+            return lst_lsp;
+        }
+
+        //thêm danh mục sản phẩm
+        public void addLSP(DanhMucSanPham_DTO lsp)
+        {
+            DanhMucSanPham lsps = new DanhMucSanPham();
+
+            lsps.MaDanhMuc = lsp.MaDanhMuc;
+            lsps.TenDanhMuc = lsp.TenDanhMuc;
+            lsps.MoTa = lsp.MoTa;
+            db.DanhMucSanPhams.InsertOnSubmit(lsps);
+            db.SubmitChanges();
+        }
+
+        // xóa DanhMucSanPham
+        public bool removeLSP(string pMaLSP)
+        {
+            DanhMucSanPham lsp = db.DanhMucSanPhams.Where(t => t.MaDanhMuc == pMaLSP).FirstOrDefault();
+            if (lsp != null)
+            {
+                db.DanhMucSanPhams.DeleteOnSubmit(lsp);
+                db.SubmitChanges();
+                return true;
+            }
+            return false;
+        }
+
+        //sửa DanhMucSanPham
+        public void editLSP(DanhMucSanPham_DTO lsp)
+        {
+            DanhMucSanPham lsps = db.DanhMucSanPhams.Where(t => t.MaDanhMuc == lsp.MaDanhMuc).FirstOrDefault();
+
+           lsps.MaDanhMuc = lsp.MaDanhMuc;
+            lsps.TenDanhMuc = lsp.TenDanhMuc;
+            lsps.MoTa = lsp.MoTa;
+
+            db.SubmitChanges();
+        }
+
+        //đếm DanhMucSanPham
+        public int countCategory()
+        {
+            var query = from lsp in db.DanhMucSanPhams select lsp;
+            return query.Count();
+        }
+
+        //kiểm tra trùng mã danh  mục
+        public bool checkPK(string pCode)
+        {
+            var query = from lsp in db.DanhMucSanPhams where lsp.MaDanhMuc == pCode select lsp;
+            return query.Any();
+        }
+
     }
 }

@@ -6,74 +6,56 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-
 namespace BLL
 {
     public class DanhMucSanPham_BLL
     {
-        DanhMucSanPham_DAL dal = new DanhMucSanPham_DAL();
+        DanhMucSanPham_DAL dmsp_dal = new DanhMucSanPham_DAL();
         public DanhMucSanPham_BLL()
         {
-            
+
         }
 
-        //Lấy danh mục sản phẩm by id
-        public DanhMucSanPham GetDanhMucSanPham(string id)
-        {
-            return dal.GetDanhMucSanPhamById(id);
-        }
-        public List<DanhMucSanPham> GetDSDanhMuc()
-        {
-            return dal.GetDanhSachDM();
-        }
-
-        public bool ThemDMSP(DanhMucSanPham dm)
-        {
-            if(dm == null)
-            {
-                return false;
-            }
-            else
-            {
-                dal.ThemDanhMucSanPhamMoi(dm);
-                return true;
-            }      
-        }
-
-        public bool XoaDMSP(string maDMSP)
-        {
-            if(maDMSP == null)
-            {
-                return false;
-            }
-            else
-            {
-                dal.XoaDanhMucSanPham(maDMSP);
-                return true;
-            }
-        }
-
-        public bool SuaDMSP(DanhMucSanPham dm)
-        {
-            if(dm == null)
-            {
-                return false;
-            }
-            else
-            {
-                dal.SuaDanhMucSanPham(dm);
-                return true;
-            }    
-        }
-
-        //Tìm kiếm danh mục theo tên danh mục
-        public List<DanhMucSanPham> SearchDanhMucByTenDanhMuc(string search)
-        {
-            return dal.SearchDanhMucByTenDanhMuc(search);
-        }
         public List<DanhMucSanPham> GetAllDanhMucSP()
         {
-            return dal.GetAllDanhMucSP();
+            return dmsp_dal.GetAllDanhMucSP();
         }
+
+        public List<DanhMucSanPham_DTO> getDanhMucSanPhamID(string pMaLSP)
+        {
+            return dmsp_dal.getDanhMucSanPhamID(pMaLSP);
+        }
+        public List<DanhMucSanPham_DTO> getDanhMucSanPhamTen(string pMaLSP)
+        {
+            return dmsp_dal.getDanhMucSanPhamTen(pMaLSP);
+        }
+        public void addLSP(DanhMucSanPham_DTO lsp)
+        {
+            dmsp_dal.addLSP(lsp);
+        }
+
+      
+        public bool removeLSP(string pMaLSP)
+        {
+            return dmsp_dal.removeLSP(pMaLSP);
+        }
+
+      
+        public void editLSP(DanhMucSanPham_DTO lsp)
+        {
+            dmsp_dal.editLSP(lsp);
+        }
+
+        public int countCategory()
+        {
+            return dmsp_dal.countCategory();
+        }
+
+       
+        public bool checkPK(string pCode)
+        {
+            return dmsp_dal.checkPK(pCode);
+        }
+
     }
 }

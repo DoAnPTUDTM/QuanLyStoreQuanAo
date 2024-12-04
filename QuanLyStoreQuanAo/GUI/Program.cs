@@ -2,7 +2,6 @@
 using GUI.SalesGUI;
 using System;
 using System.Collections.Generic;
-using System.Data.SqlClient;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -24,11 +23,12 @@ namespace GUI
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            //Application.Run(new frmAddStaff());
-            Application.Run(new frmLogin());
-            //Application.Run(new frmMainAdmin());
-            //Application.Run(new frmMainSales());
-            //Application.Run(new frmSales());
+            //Application.Run(new SalesGUI.frmProducts());
+
+
+            Application.Run(new AdminGUI.frmProductAdmin());
+             //Application.Run(new AdminGUI.frmCategory());
+
 
         }
     }

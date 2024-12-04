@@ -33,14 +33,13 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="DAL">
-      <HintPath>..\DAL\obj\Debug\DAL.dll</HintPath>
+      <HintPath>..\DAL\bin\Debug\DAL.dll</HintPath>
     </Reference>
     <Reference Include="DTO">
-      <HintPath>..\DTO\bin\Debug\DTO.dll</HintPath>
+      <HintPath>..\DAL\bin\Debug\DTO.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
-    <Reference Include="System.Data.Linq" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -51,9 +50,8 @@
   <ItemGroup>
     <Compile Include="CTHoaDon_BLL.cs" />
     <Compile Include="DanhMucSanPham_BLL.cs" />
-    <Compile Include="HoaDon_BLL.cs" />
-    <Compile Include="DanhMucSanPham_BLL.cs" />
     <Compile Include="DonHang_BLL.cs" />
+    <Compile Include="HoaDon_BLL.cs" />
     <Compile Include="KhachHang_BLL.cs" />
     <Compile Include="NhanVien_BLL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

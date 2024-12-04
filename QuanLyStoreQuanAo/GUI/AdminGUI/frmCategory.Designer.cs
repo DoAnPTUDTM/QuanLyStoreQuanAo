@@ -78,14 +78,15 @@
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dgvCategory.DefaultCellStyle = dataGridViewCellStyle3;
             this.dgvCategory.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            this.dgvCategory.Location = new System.Drawing.Point(5, 5);
+            this.dgvCategory.Location = new System.Drawing.Point(6, 6);
+            this.dgvCategory.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.dgvCategory.MultiSelect = false;
             this.dgvCategory.Name = "dgvCategory";
             this.dgvCategory.ReadOnly = true;
             this.dgvCategory.RowHeadersVisible = false;
             this.dgvCategory.RowHeadersWidth = 51;
             this.dgvCategory.RowTemplate.Height = 24;
-            this.dgvCategory.Size = new System.Drawing.Size(1087, 518);
+            this.dgvCategory.Size = new System.Drawing.Size(1224, 647);
             this.dgvCategory.TabIndex = 0;
             this.dgvCategory.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
             this.dgvCategory.ThemeStyle.AlternatingRowsStyle.Font = null;
@@ -119,18 +120,20 @@
             this.guna2GradientPanel1.FillColor = System.Drawing.Color.White;
             this.guna2GradientPanel1.FillColor2 = System.Drawing.Color.White;
             this.guna2GradientPanel1.Location = new System.Drawing.Point(3, 0);
+            this.guna2GradientPanel1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.guna2GradientPanel1.Name = "guna2GradientPanel1";
-            this.guna2GradientPanel1.Size = new System.Drawing.Size(1097, 673);
+            this.guna2GradientPanel1.Size = new System.Drawing.Size(1235, 841);
             this.guna2GradientPanel1.TabIndex = 4;
             // 
             // guna2GradientPanel3
             // 
             this.guna2GradientPanel3.Controls.Add(this.dgvCategory);
             this.guna2GradientPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.guna2GradientPanel3.Location = new System.Drawing.Point(0, 142);
+            this.guna2GradientPanel3.Location = new System.Drawing.Point(0, 178);
+            this.guna2GradientPanel3.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.guna2GradientPanel3.Name = "guna2GradientPanel3";
-            this.guna2GradientPanel3.Padding = new System.Windows.Forms.Padding(5);
-            this.guna2GradientPanel3.Size = new System.Drawing.Size(1097, 531);
+            this.guna2GradientPanel3.Padding = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.guna2GradientPanel3.Size = new System.Drawing.Size(1235, 663);
             this.guna2GradientPanel3.TabIndex = 1;
             // 
             // guna2GradientPanel2
@@ -139,9 +142,10 @@
             this.guna2GradientPanel2.Controls.Add(this.panel1);
             this.guna2GradientPanel2.Dock = System.Windows.Forms.DockStyle.Top;
             this.guna2GradientPanel2.Location = new System.Drawing.Point(0, 0);
+            this.guna2GradientPanel2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.guna2GradientPanel2.Name = "guna2GradientPanel2";
-            this.guna2GradientPanel2.Padding = new System.Windows.Forms.Padding(20, 20, 20, 10);
-            this.guna2GradientPanel2.Size = new System.Drawing.Size(1097, 142);
+            this.guna2GradientPanel2.Padding = new System.Windows.Forms.Padding(22, 25, 22, 12);
+            this.guna2GradientPanel2.Size = new System.Drawing.Size(1235, 178);
             this.guna2GradientPanel2.TabIndex = 0;
             // 
             // panel2
@@ -151,9 +155,10 @@
             this.panel2.Controls.Add(this.btnRemove);
             this.panel2.Controls.Add(this.btnAdd);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panel2.Location = new System.Drawing.Point(710, 20);
+            this.panel2.Location = new System.Drawing.Point(798, 25);
+            this.panel2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(648, 112);
+            this.panel2.Size = new System.Drawing.Size(729, 141);
             this.panel2.TabIndex = 3;
             // 
             // btnLoad
@@ -170,13 +175,15 @@
             this.btnLoad.HoverState.FillColor = System.Drawing.Color.White;
             this.btnLoad.Image = global::GUI.Properties.Resources.refresh;
             this.btnLoad.ImageSize = new System.Drawing.Size(50, 50);
-            this.btnLoad.Location = new System.Drawing.Point(276, 15);
+            this.btnLoad.Location = new System.Drawing.Point(310, 19);
+            this.btnLoad.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnLoad.Name = "btnLoad";
             this.btnLoad.PressedColor = System.Drawing.Color.White;
             this.btnLoad.PressedDepth = 0;
             this.btnLoad.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
-            this.btnLoad.Size = new System.Drawing.Size(80, 80);
+            this.btnLoad.Size = new System.Drawing.Size(90, 100);
             this.btnLoad.TabIndex = 4;
+            this.btnLoad.Click += new System.EventHandler(this.btnLoad_Click_1);
             // 
             // btnEdit
             // 
@@ -192,12 +199,13 @@
             this.btnEdit.HoverState.FillColor = System.Drawing.Color.White;
             this.btnEdit.Image = global::GUI.Properties.Resources.pencil;
             this.btnEdit.ImageSize = new System.Drawing.Size(50, 50);
-            this.btnEdit.Location = new System.Drawing.Point(190, 15);
+            this.btnEdit.Location = new System.Drawing.Point(214, 19);
+            this.btnEdit.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnEdit.Name = "btnEdit";
             this.btnEdit.PressedColor = System.Drawing.Color.White;
             this.btnEdit.PressedDepth = 0;
             this.btnEdit.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
-            this.btnEdit.Size = new System.Drawing.Size(80, 80);
+            this.btnEdit.Size = new System.Drawing.Size(90, 100);
             this.btnEdit.TabIndex = 4;
             // 
             // btnRemove
@@ -214,12 +222,13 @@
             this.btnRemove.HoverState.FillColor = System.Drawing.Color.White;
             this.btnRemove.Image = global::GUI.Properties.Resources.minus;
             this.btnRemove.ImageSize = new System.Drawing.Size(50, 50);
-            this.btnRemove.Location = new System.Drawing.Point(104, 15);
+            this.btnRemove.Location = new System.Drawing.Point(117, 19);
+            this.btnRemove.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnRemove.Name = "btnRemove";
             this.btnRemove.PressedColor = System.Drawing.Color.White;
             this.btnRemove.PressedDepth = 0;
             this.btnRemove.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
-            this.btnRemove.Size = new System.Drawing.Size(80, 80);
+            this.btnRemove.Size = new System.Drawing.Size(90, 100);
             this.btnRemove.TabIndex = 5;
             // 
             // btnAdd
@@ -236,12 +245,13 @@
             this.btnAdd.HoverState.FillColor = System.Drawing.Color.White;
             this.btnAdd.Image = global::GUI.Properties.Resources.add;
             this.btnAdd.ImageSize = new System.Drawing.Size(50, 50);
-            this.btnAdd.Location = new System.Drawing.Point(18, 15);
+            this.btnAdd.Location = new System.Drawing.Point(20, 19);
+            this.btnAdd.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.PressedColor = System.Drawing.Color.White;
             this.btnAdd.PressedDepth = 0;
             this.btnAdd.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
-            this.btnAdd.Size = new System.Drawing.Size(80, 80);
+            this.btnAdd.Size = new System.Drawing.Size(90, 100);
             this.btnAdd.TabIndex = 6;
             // 
             // panel1
@@ -249,18 +259,20 @@
             this.panel1.Controls.Add(this.btnClearText);
             this.panel1.Controls.Add(this.txtSearch);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panel1.Location = new System.Drawing.Point(20, 20);
+            this.panel1.Location = new System.Drawing.Point(22, 25);
+            this.panel1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(690, 112);
+            this.panel1.Size = new System.Drawing.Size(776, 141);
             this.panel1.TabIndex = 2;
             // 
             // btnClearText
             // 
             this.btnClearText.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnClearText.Image = global::GUI.Properties.Resources.close;
-            this.btnClearText.Location = new System.Drawing.Point(597, 41);
+            this.btnClearText.Location = new System.Drawing.Point(672, 51);
+            this.btnClearText.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnClearText.Name = "btnClearText";
-            this.btnClearText.Size = new System.Drawing.Size(35, 35);
+            this.btnClearText.Size = new System.Drawing.Size(39, 44);
             this.btnClearText.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.btnClearText.TabIndex = 3;
             this.btnClearText.TabStop = false;
@@ -280,23 +292,24 @@
             this.txtSearch.IconLeft = global::GUI.Properties.Resources.search;
             this.txtSearch.IconLeftOffset = new System.Drawing.Point(5, 0);
             this.txtSearch.IconLeftSize = new System.Drawing.Size(25, 25);
-            this.txtSearch.Location = new System.Drawing.Point(52, 27);
-            this.txtSearch.Margin = new System.Windows.Forms.Padding(5);
+            this.txtSearch.Location = new System.Drawing.Point(58, 34);
+            this.txtSearch.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.txtSearch.Name = "txtSearch";
             this.txtSearch.PasswordChar = '\0';
             this.txtSearch.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
             this.txtSearch.PlaceholderText = "Tìm kiếm ở đây...";
             this.txtSearch.SelectedText = "";
-            this.txtSearch.Size = new System.Drawing.Size(587, 64);
+            this.txtSearch.Size = new System.Drawing.Size(660, 80);
             this.txtSearch.TabIndex = 2;
             // 
             // frmCategory
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1100, 673);
+            this.ClientSize = new System.Drawing.Size(1238, 841);
             this.Controls.Add(this.guna2GradientPanel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "frmCategory";
             this.Padding = new System.Windows.Forms.Padding(3, 0, 0, 0);
             this.Text = "frmCategory";
