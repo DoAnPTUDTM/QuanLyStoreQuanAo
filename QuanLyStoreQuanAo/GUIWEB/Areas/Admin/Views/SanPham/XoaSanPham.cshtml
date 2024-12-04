@@ -1,0 +1,21 @@
+﻿@model DTO.SanPham
+
+@{
+    ViewBag.Title = "Xác nhận xóa sản phẩm";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutPage1_Admin.cshtml";
+}
+
+<div class="card">
+    <div class="card-body">
+        <h4 class="card-title">Xác nhận xóa sản phẩm</h4>
+        <p>Bạn có chắc chắn muốn xóa sản phẩm <strong>@Model.TenSanPham</strong> không?</p>
+        <form asp-action="XacNhanXoaSanPham" method="post">
+            @Html.AntiForgeryToken()
+            <input type="hidden" name="id" value="@Model.MaSanPham" />
+            <div class="d-grid gap-2">
+                <button type="submit" class="btn btn-danger">Xóa sản phẩm</button>
+                <a href="@Url.Action("SanPham", "SanPham")" class="btn btn-secondary">Hủy bỏ</a>
+            </div>
+        </form>
+    </div>
+</div>

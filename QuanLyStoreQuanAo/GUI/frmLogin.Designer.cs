@@ -32,11 +32,13 @@
             this.metroPanel1 = new MetroFramework.Controls.MetroPanel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.metroPanel2 = new MetroFramework.Controls.MetroPanel();
+            this.btnPAS = new ReaLTaiizor.Controls.AloneButton();
+            this.txtSDT = new Guna.UI2.WinForms.Guna2TextBox();
+            this.lblthongbao = new ReaLTaiizor.Controls.MoonLabel();
+            this.moonLabel1 = new ReaLTaiizor.Controls.MoonLabel();
             this.btnShowPS = new ReaLTaiizor.Controls.ParrotPictureBox();
             this.txtPS = new Guna.UI2.WinForms.Guna2TextBox();
-            this.cboRole = new Guna.UI2.WinForms.Guna2ComboBox();
             this.lbError = new ReaLTaiizor.Controls.CrownLabel();
-            this.chkRememberPS = new ReaLTaiizor.Controls.AloneCheckBox();
             this.moonLabel2 = new ReaLTaiizor.Controls.MoonLabel();
             this.bigLabel1 = new ReaLTaiizor.Controls.BigLabel();
             this.btnLogin = new ReaLTaiizor.Controls.Button();
@@ -73,11 +75,13 @@
             // 
             // metroPanel2
             // 
+            this.metroPanel2.Controls.Add(this.btnPAS);
+            this.metroPanel2.Controls.Add(this.txtSDT);
+            this.metroPanel2.Controls.Add(this.lblthongbao);
+            this.metroPanel2.Controls.Add(this.moonLabel1);
             this.metroPanel2.Controls.Add(this.btnShowPS);
             this.metroPanel2.Controls.Add(this.txtPS);
-            this.metroPanel2.Controls.Add(this.cboRole);
             this.metroPanel2.Controls.Add(this.lbError);
-            this.metroPanel2.Controls.Add(this.chkRememberPS);
             this.metroPanel2.Controls.Add(this.moonLabel2);
             this.metroPanel2.Controls.Add(this.bigLabel1);
             this.metroPanel2.Controls.Add(this.btnLogin);
@@ -93,6 +97,66 @@
             this.metroPanel2.VerticalScrollbarBarColor = true;
             this.metroPanel2.VerticalScrollbarHighlightOnWheel = false;
             this.metroPanel2.VerticalScrollbarSize = 11;
+            this.metroPanel2.Paint += new System.Windows.Forms.PaintEventHandler(this.metroPanel2_Paint);
+            // 
+            // btnPAS
+            // 
+            this.btnPAS.BackgroundImage = global::GUI.Properties.Resources.close_eyes_32;
+            this.btnPAS.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnPAS.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnPAS.EnabledCalc = true;
+            this.btnPAS.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.btnPAS.ForeColor = System.Drawing.Color.White;
+            this.btnPAS.Location = new System.Drawing.Point(461, 213);
+            this.btnPAS.Name = "btnPAS";
+            this.btnPAS.Size = new System.Drawing.Size(44, 46);
+            this.btnPAS.TabIndex = 24;
+            this.btnPAS.Click += new ReaLTaiizor.Controls.AloneButton.ClickEventHandler(this.btnPAS_Click);
+            // 
+            // txtSDT
+            // 
+            this.txtSDT.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtSDT.DefaultText = "";
+            this.txtSDT.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.txtSDT.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.txtSDT.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtSDT.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtSDT.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtSDT.Font = new System.Drawing.Font("Consolas", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtSDT.ForeColor = System.Drawing.Color.DimGray;
+            this.txtSDT.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtSDT.Location = new System.Drawing.Point(201, 140);
+            this.txtSDT.Margin = new System.Windows.Forms.Padding(5);
+            this.txtSDT.Name = "txtSDT";
+            this.txtSDT.PasswordChar = '\0';
+            this.txtSDT.PlaceholderText = "";
+            this.txtSDT.SelectedText = "";
+            this.txtSDT.Size = new System.Drawing.Size(304, 46);
+            this.txtSDT.TabIndex = 22;
+            // 
+            // lblthongbao
+            // 
+            this.lblthongbao.AutoSize = true;
+            this.lblthongbao.BackColor = System.Drawing.Color.Transparent;
+            this.lblthongbao.Font = new System.Drawing.Font("Consolas", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblthongbao.ForeColor = System.Drawing.Color.Red;
+            this.lblthongbao.Location = new System.Drawing.Point(146, 289);
+            this.lblthongbao.Name = "lblthongbao";
+            this.lblthongbao.Size = new System.Drawing.Size(351, 20);
+            this.lblthongbao.TabIndex = 21;
+            this.lblthongbao.Text = "Số điện thoại hoặc mật khẩu không đúng";
+            // 
+            // moonLabel1
+            // 
+            this.moonLabel1.AutoSize = true;
+            this.moonLabel1.BackColor = System.Drawing.Color.Transparent;
+            this.moonLabel1.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.moonLabel1.ForeColor = System.Drawing.Color.DimGray;
+            this.moonLabel1.Location = new System.Drawing.Point(8, 153);
+            this.moonLabel1.Name = "moonLabel1";
+            this.moonLabel1.Size = new System.Drawing.Size(164, 23);
+            this.moonLabel1.TabIndex = 20;
+            this.moonLabel1.Text = "SỐ ĐIỆN THOẠI:";
             // 
             // btnShowPS
             // 
@@ -103,10 +167,11 @@
             this.btnShowPS.FilterAlpha = 200;
             this.btnShowPS.FilterEnabled = true;
             this.btnShowPS.Image = ((System.Drawing.Image)(resources.GetObject("btnShowPS.Image")));
+            this.btnShowPS.ImeMode = System.Windows.Forms.ImeMode.On;
             this.btnShowPS.InterpolationType = System.Drawing.Drawing2D.InterpolationMode.HighQualityBilinear;
             this.btnShowPS.IsElipse = false;
             this.btnShowPS.IsParallax = false;
-            this.btnShowPS.Location = new System.Drawing.Point(461, 213);
+            this.btnShowPS.Location = new System.Drawing.Point(461, 218);
             this.btnShowPS.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnShowPS.Name = "btnShowPS";
             this.btnShowPS.PixelOffsetType = System.Drawing.Drawing2D.PixelOffsetMode.HighQuality;
@@ -116,6 +181,7 @@
             this.btnShowPS.Tag = "closePS";
             this.btnShowPS.Text = "parrotPictureBox1";
             this.btnShowPS.TextRenderingType = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
+            this.btnShowPS.Click += new System.EventHandler(this.btnShowPS_Click_1);
             // 
             // txtPS
             // 
@@ -129,30 +195,15 @@
             this.txtPS.Font = new System.Drawing.Font("Consolas", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtPS.ForeColor = System.Drawing.Color.DimGray;
             this.txtPS.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtPS.Location = new System.Drawing.Point(201, 210);
-            this.txtPS.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.txtPS.Location = new System.Drawing.Point(201, 213);
+            this.txtPS.Margin = new System.Windows.Forms.Padding(5);
             this.txtPS.Name = "txtPS";
-            this.txtPS.PasswordChar = '\0';
+            this.txtPS.PasswordChar = '●';
             this.txtPS.PlaceholderText = "";
             this.txtPS.SelectedText = "";
-            this.txtPS.Size = new System.Drawing.Size(309, 46);
+            this.txtPS.Size = new System.Drawing.Size(252, 46);
             this.txtPS.TabIndex = 16;
-            // 
-            // cboRole
-            // 
-            this.cboRole.BackColor = System.Drawing.Color.Transparent;
-            this.cboRole.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            this.cboRole.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cboRole.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.cboRole.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.cboRole.Font = new System.Drawing.Font("Consolas", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cboRole.ForeColor = System.Drawing.Color.DimGray;
-            this.cboRole.ItemHeight = 30;
-            this.cboRole.Location = new System.Drawing.Point(68, 138);
-            this.cboRole.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.cboRole.Name = "cboRole";
-            this.cboRole.Size = new System.Drawing.Size(441, 36);
-            this.cboRole.TabIndex = 15;
+            this.txtPS.UseSystemPasswordChar = true;
             // 
             // lbError
             // 
@@ -162,20 +213,6 @@
             this.lbError.Name = "lbError";
             this.lbError.Size = new System.Drawing.Size(0, 16);
             this.lbError.TabIndex = 14;
-            // 
-            // chkRememberPS
-            // 
-            this.chkRememberPS.BackColor = System.Drawing.Color.White;
-            this.chkRememberPS.Checked = false;
-            this.chkRememberPS.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.chkRememberPS.EnabledCalc = true;
-            this.chkRememberPS.ForeColor = System.Drawing.Color.DimGray;
-            this.chkRememberPS.Location = new System.Drawing.Point(369, 294);
-            this.chkRememberPS.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.chkRememberPS.Name = "chkRememberPS";
-            this.chkRememberPS.Size = new System.Drawing.Size(161, 18);
-            this.chkRememberPS.TabIndex = 13;
-            this.chkRememberPS.Text = "NHỚ MẬT KHẨU";
             // 
             // moonLabel2
             // 
@@ -250,11 +287,13 @@
         private ReaLTaiizor.Controls.Button btnLogin;
         private ReaLTaiizor.Controls.BigLabel bigLabel1;
         private ReaLTaiizor.Controls.MoonLabel moonLabel2;
-        private ReaLTaiizor.Controls.AloneCheckBox chkRememberPS;
         private ReaLTaiizor.Controls.CrownLabel lbError;
-        private Guna.UI2.WinForms.Guna2ComboBox cboRole;
-        private ReaLTaiizor.Controls.ParrotPictureBox btnShowPS;
         private Guna.UI2.WinForms.Guna2TextBox txtPS;
+        private ReaLTaiizor.Controls.MoonLabel moonLabel1;
+        private ReaLTaiizor.Controls.MoonLabel lblthongbao;
+        private Guna.UI2.WinForms.Guna2TextBox txtSDT;
+        private ReaLTaiizor.Controls.ParrotPictureBox btnShowPS;
+        private ReaLTaiizor.Controls.AloneButton btnPAS;
     }
 }
 

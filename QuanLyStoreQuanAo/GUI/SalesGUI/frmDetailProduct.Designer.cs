@@ -34,18 +34,15 @@
             this.picProduct = new Guna.UI2.WinForms.Guna2PictureBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.bigLabel14 = new ReaLTaiizor.Controls.BigLabel();
-            this.bigLabel13 = new ReaLTaiizor.Controls.BigLabel();
             this.bigLabel11 = new ReaLTaiizor.Controls.BigLabel();
             this.bigLabel10 = new ReaLTaiizor.Controls.BigLabel();
             this.bigLabel12 = new ReaLTaiizor.Controls.BigLabel();
             this.bigLabel3 = new ReaLTaiizor.Controls.BigLabel();
-            this.bigLabel5 = new ReaLTaiizor.Controls.BigLabel();
             this.bigLabel9 = new ReaLTaiizor.Controls.BigLabel();
             this.bigLabel8 = new ReaLTaiizor.Controls.BigLabel();
-            this.lbNXX = new ReaLTaiizor.Controls.BigLabel();
             this.lbDVT = new ReaLTaiizor.Controls.BigLabel();
             this.lbLSP = new ReaLTaiizor.Controls.BigLabel();
-            this.lbNCC = new ReaLTaiizor.Controls.BigLabel();
+            this.lbNSX = new ReaLTaiizor.Controls.BigLabel();
             this.lbMoTa = new ReaLTaiizor.Controls.BigLabel();
             this.lbSLT = new ReaLTaiizor.Controls.BigLabel();
             this.lbGia = new ReaLTaiizor.Controls.BigLabel();
@@ -81,18 +78,15 @@
             this.guna2GradientPanel3.Controls.Add(this.picProduct);
             this.guna2GradientPanel3.Controls.Add(this.panel1);
             this.guna2GradientPanel3.Controls.Add(this.bigLabel14);
-            this.guna2GradientPanel3.Controls.Add(this.bigLabel13);
             this.guna2GradientPanel3.Controls.Add(this.bigLabel11);
             this.guna2GradientPanel3.Controls.Add(this.bigLabel10);
             this.guna2GradientPanel3.Controls.Add(this.bigLabel12);
             this.guna2GradientPanel3.Controls.Add(this.bigLabel3);
-            this.guna2GradientPanel3.Controls.Add(this.bigLabel5);
             this.guna2GradientPanel3.Controls.Add(this.bigLabel9);
             this.guna2GradientPanel3.Controls.Add(this.bigLabel8);
-            this.guna2GradientPanel3.Controls.Add(this.lbNXX);
             this.guna2GradientPanel3.Controls.Add(this.lbDVT);
             this.guna2GradientPanel3.Controls.Add(this.lbLSP);
-            this.guna2GradientPanel3.Controls.Add(this.lbNCC);
+            this.guna2GradientPanel3.Controls.Add(this.lbNSX);
             this.guna2GradientPanel3.Controls.Add(this.lbMoTa);
             this.guna2GradientPanel3.Controls.Add(this.lbSLT);
             this.guna2GradientPanel3.Controls.Add(this.lbGia);
@@ -144,23 +138,11 @@
             this.bigLabel14.BackColor = System.Drawing.Color.Transparent;
             this.bigLabel14.Font = new System.Drawing.Font("Consolas", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bigLabel14.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(80)))), ((int)(((byte)(80)))));
-            this.bigLabel14.Location = new System.Drawing.Point(623, 780);
+            this.bigLabel14.Location = new System.Drawing.Point(28, 219);
             this.bigLabel14.Name = "bigLabel14";
             this.bigLabel14.Size = new System.Drawing.Size(194, 27);
             this.bigLabel14.TabIndex = 0;
             this.bigLabel14.Text = "Loại sản phẩm:";
-            // 
-            // bigLabel13
-            // 
-            this.bigLabel13.AutoSize = true;
-            this.bigLabel13.BackColor = System.Drawing.Color.Transparent;
-            this.bigLabel13.Font = new System.Drawing.Font("Consolas", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bigLabel13.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(80)))), ((int)(((byte)(80)))));
-            this.bigLabel13.Location = new System.Drawing.Point(28, 780);
-            this.bigLabel13.Name = "bigLabel13";
-            this.bigLabel13.Size = new System.Drawing.Size(168, 27);
-            this.bigLabel13.TabIndex = 0;
-            this.bigLabel13.Text = "Đơn vị tính:";
             // 
             // bigLabel11
             // 
@@ -168,7 +150,7 @@
             this.bigLabel11.BackColor = System.Drawing.Color.Transparent;
             this.bigLabel11.Font = new System.Drawing.Font("Consolas", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bigLabel11.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(80)))), ((int)(((byte)(80)))));
-            this.bigLabel11.Location = new System.Drawing.Point(623, 234);
+            this.bigLabel11.Location = new System.Drawing.Point(805, 298);
             this.bigLabel11.Name = "bigLabel11";
             this.bigLabel11.Size = new System.Drawing.Size(90, 27);
             this.bigLabel11.TabIndex = 0;
@@ -192,7 +174,7 @@
             this.bigLabel12.BackColor = System.Drawing.Color.Transparent;
             this.bigLabel12.Font = new System.Drawing.Font("Consolas", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bigLabel12.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(80)))), ((int)(((byte)(80)))));
-            this.bigLabel12.Location = new System.Drawing.Point(623, 693);
+            this.bigLabel12.Location = new System.Drawing.Point(805, 219);
             this.bigLabel12.Name = "bigLabel12";
             this.bigLabel12.Size = new System.Drawing.Size(181, 27);
             this.bigLabel12.TabIndex = 0;
@@ -210,25 +192,13 @@
             this.bigLabel3.TabIndex = 0;
             this.bigLabel3.Text = "Tên sản phẩm:";
             // 
-            // bigLabel5
-            // 
-            this.bigLabel5.AutoSize = true;
-            this.bigLabel5.BackColor = System.Drawing.Color.Transparent;
-            this.bigLabel5.Font = new System.Drawing.Font("Consolas", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bigLabel5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(80)))), ((int)(((byte)(80)))));
-            this.bigLabel5.Location = new System.Drawing.Point(28, 693);
-            this.bigLabel5.Name = "bigLabel5";
-            this.bigLabel5.Size = new System.Drawing.Size(181, 27);
-            this.bigLabel5.TabIndex = 0;
-            this.bigLabel5.Text = "Nước xuất xứ:";
-            // 
             // bigLabel9
             // 
             this.bigLabel9.AutoSize = true;
             this.bigLabel9.BackColor = System.Drawing.Color.Transparent;
             this.bigLabel9.Font = new System.Drawing.Font("Consolas", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bigLabel9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(80)))), ((int)(((byte)(80)))));
-            this.bigLabel9.Location = new System.Drawing.Point(623, 131);
+            this.bigLabel9.Location = new System.Drawing.Point(805, 131);
             this.bigLabel9.Name = "bigLabel9";
             this.bigLabel9.Size = new System.Drawing.Size(181, 27);
             this.bigLabel9.TabIndex = 0;
@@ -240,23 +210,11 @@
             this.bigLabel8.BackColor = System.Drawing.Color.Transparent;
             this.bigLabel8.Font = new System.Drawing.Font("Consolas", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bigLabel8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(80)))), ((int)(((byte)(80)))));
-            this.bigLabel8.Location = new System.Drawing.Point(623, 47);
+            this.bigLabel8.Location = new System.Drawing.Point(805, 47);
             this.bigLabel8.Name = "bigLabel8";
             this.bigLabel8.Size = new System.Drawing.Size(64, 27);
             this.bigLabel8.TabIndex = 0;
             this.bigLabel8.Text = "Giá:";
-            // 
-            // lbNXX
-            // 
-            this.lbNXX.AutoSize = true;
-            this.lbNXX.BackColor = System.Drawing.Color.Transparent;
-            this.lbNXX.Font = new System.Drawing.Font("Consolas", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbNXX.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(80)))), ((int)(((byte)(80)))));
-            this.lbNXX.Location = new System.Drawing.Point(234, 693);
-            this.lbNXX.Name = "lbNXX";
-            this.lbNXX.Size = new System.Drawing.Size(168, 27);
-            this.lbNXX.TabIndex = 0;
-            this.lbNXX.Text = "Mã sản phẩm:";
             // 
             // lbDVT
             // 
@@ -266,9 +224,8 @@
             this.lbDVT.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(80)))), ((int)(((byte)(80)))));
             this.lbDVT.Location = new System.Drawing.Point(234, 780);
             this.lbDVT.Name = "lbDVT";
-            this.lbDVT.Size = new System.Drawing.Size(168, 27);
+            this.lbDVT.Size = new System.Drawing.Size(0, 27);
             this.lbDVT.TabIndex = 0;
-            this.lbDVT.Text = "Mã sản phẩm:";
             // 
             // lbLSP
             // 
@@ -276,30 +233,30 @@
             this.lbLSP.BackColor = System.Drawing.Color.Transparent;
             this.lbLSP.Font = new System.Drawing.Font("Consolas", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbLSP.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(80)))), ((int)(((byte)(80)))));
-            this.lbLSP.Location = new System.Drawing.Point(824, 780);
+            this.lbLSP.Location = new System.Drawing.Point(234, 219);
             this.lbLSP.Name = "lbLSP";
-            this.lbLSP.Size = new System.Drawing.Size(168, 27);
+            this.lbLSP.Size = new System.Drawing.Size(181, 27);
             this.lbLSP.TabIndex = 0;
-            this.lbLSP.Text = "Mã sản phẩm:";
+            this.lbLSP.Text = "Loại sản phẩm";
             // 
-            // lbNCC
+            // lbNSX
             // 
-            this.lbNCC.AutoSize = true;
-            this.lbNCC.BackColor = System.Drawing.Color.Transparent;
-            this.lbNCC.Font = new System.Drawing.Font("Consolas", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbNCC.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(80)))), ((int)(((byte)(80)))));
-            this.lbNCC.Location = new System.Drawing.Point(824, 693);
-            this.lbNCC.Name = "lbNCC";
-            this.lbNCC.Size = new System.Drawing.Size(168, 27);
-            this.lbNCC.TabIndex = 0;
-            this.lbNCC.Text = "Mã sản phẩm:";
+            this.lbNSX.AutoSize = true;
+            this.lbNSX.BackColor = System.Drawing.Color.Transparent;
+            this.lbNSX.Font = new System.Drawing.Font("Consolas", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbNSX.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(80)))), ((int)(((byte)(80)))));
+            this.lbNSX.Location = new System.Drawing.Point(994, 219);
+            this.lbNSX.Name = "lbNSX";
+            this.lbNSX.Size = new System.Drawing.Size(168, 27);
+            this.lbNSX.TabIndex = 0;
+            this.lbNSX.Text = "Nhà sản xuất";
             // 
             // lbMoTa
             // 
             this.lbMoTa.BackColor = System.Drawing.Color.Transparent;
             this.lbMoTa.Font = new System.Drawing.Font("Consolas", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbMoTa.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(80)))), ((int)(((byte)(80)))));
-            this.lbMoTa.Location = new System.Drawing.Point(812, 234);
+            this.lbMoTa.Location = new System.Drawing.Point(805, 341);
             this.lbMoTa.Name = "lbMoTa";
             this.lbMoTa.Size = new System.Drawing.Size(350, 166);
             this.lbMoTa.TabIndex = 0;
@@ -311,7 +268,7 @@
             this.lbSLT.BackColor = System.Drawing.Color.Transparent;
             this.lbSLT.Font = new System.Drawing.Font("Consolas", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbSLT.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(80)))), ((int)(((byte)(80)))));
-            this.lbSLT.Location = new System.Drawing.Point(824, 131);
+            this.lbSLT.Location = new System.Drawing.Point(1046, 131);
             this.lbSLT.Name = "lbSLT";
             this.lbSLT.Size = new System.Drawing.Size(116, 27);
             this.lbSLT.TabIndex = 0;
@@ -323,11 +280,11 @@
             this.lbGia.BackColor = System.Drawing.Color.Transparent;
             this.lbGia.Font = new System.Drawing.Font("Consolas", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbGia.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(80)))), ((int)(((byte)(80)))));
-            this.lbGia.Location = new System.Drawing.Point(824, 47);
+            this.lbGia.Location = new System.Drawing.Point(887, 47);
             this.lbGia.Name = "lbGia";
-            this.lbGia.Size = new System.Drawing.Size(181, 27);
+            this.lbGia.Size = new System.Drawing.Size(168, 27);
             this.lbGia.TabIndex = 0;
-            this.lbGia.Text = "Giá sản phẩm:";
+            this.lbGia.Text = "Giá sản phẩm";
             // 
             // lbTenSP
             // 
@@ -336,9 +293,9 @@
             this.lbTenSP.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(80)))), ((int)(((byte)(80)))));
             this.lbTenSP.Location = new System.Drawing.Point(234, 131);
             this.lbTenSP.Name = "lbTenSP";
-            this.lbTenSP.Size = new System.Drawing.Size(337, 150);
+            this.lbTenSP.Size = new System.Drawing.Size(518, 64);
             this.lbTenSP.TabIndex = 0;
-            this.lbTenSP.Text = "Tên sản phẩm:";
+            this.lbTenSP.Text = "Tên sản phẩm";
             // 
             // lbMaSP
             // 
@@ -348,9 +305,9 @@
             this.lbMaSP.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(80)))), ((int)(((byte)(80)))));
             this.lbMaSP.Location = new System.Drawing.Point(234, 47);
             this.lbMaSP.Name = "lbMaSP";
-            this.lbMaSP.Size = new System.Drawing.Size(168, 27);
+            this.lbMaSP.Size = new System.Drawing.Size(155, 27);
             this.lbMaSP.TabIndex = 0;
-            this.lbMaSP.Text = "Mã sản phẩm:";
+            this.lbMaSP.Text = "Mã sản phẩm";
             // 
             // bigLabel1
             // 
@@ -449,18 +406,15 @@
         private Guna.UI2.WinForms.Guna2PictureBox picProduct;
         private System.Windows.Forms.Panel panel1;
         private ReaLTaiizor.Controls.BigLabel bigLabel14;
-        private ReaLTaiizor.Controls.BigLabel bigLabel13;
         private ReaLTaiizor.Controls.BigLabel bigLabel11;
         private ReaLTaiizor.Controls.BigLabel bigLabel10;
         private ReaLTaiizor.Controls.BigLabel bigLabel12;
         private ReaLTaiizor.Controls.BigLabel bigLabel3;
-        private ReaLTaiizor.Controls.BigLabel bigLabel5;
         private ReaLTaiizor.Controls.BigLabel bigLabel9;
         private ReaLTaiizor.Controls.BigLabel bigLabel8;
-        private ReaLTaiizor.Controls.BigLabel lbNXX;
         private ReaLTaiizor.Controls.BigLabel lbDVT;
         private ReaLTaiizor.Controls.BigLabel lbLSP;
-        private ReaLTaiizor.Controls.BigLabel lbNCC;
+        private ReaLTaiizor.Controls.BigLabel lbNSX;
         private ReaLTaiizor.Controls.BigLabel lbMoTa;
         private ReaLTaiizor.Controls.BigLabel lbSLT;
         private ReaLTaiizor.Controls.BigLabel lbGia;

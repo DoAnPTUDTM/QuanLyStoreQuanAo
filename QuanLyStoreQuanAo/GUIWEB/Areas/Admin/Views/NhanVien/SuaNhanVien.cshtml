@@ -1,0 +1,69 @@
+﻿@model DTO.NhanVien
+@{
+    ViewBag.Title = "Chỉnh sửa nhân viên";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutPage1_Admin.cshtml";
+}
+
+<div class="card">
+    <div class="card-body" style="margin-top: 60px">
+        <h2 class="my-4 text-center">Chỉnh sửa nhân viên</h2>
+
+        @using (Html.BeginForm("SuaNhanVien", "NhanVien", FormMethod.Post, new { @class = "form-horizontal" }))
+        {
+            @Html.AntiForgeryToken()
+            @Html.HiddenFor(m => m.MaNhanVien)
+
+            <div class="row">
+                <div class="col-md-8 offset-md-2">
+
+                    <!-- Họ tên -->
+                    <div class="form-group mb-3">
+                        @Html.LabelFor(m => m.HoTen, "Họ tên:", htmlAttributes: new { @class = "form-label" })
+                        @Html.TextBoxFor(m => m.HoTen, new { @class = "form-control", @placeholder = "Nhập họ tên", required = "required" })
+                        @Html.ValidationMessageFor(m => m.HoTen, "", new { @class = "text-danger" })
+                    </div>
+
+                    <!-- Email -->
+                    <div class="form-group mb-3">
+                        @Html.LabelFor(m => m.Email, "Email:", htmlAttributes: new { @class = "form-label" })
+                        @Html.TextBoxFor(m => m.Email, new { @class = "form-control", @placeholder = "Nhập địa chỉ email", type = "email", required = "required" })
+                        @Html.ValidationMessageFor(m => m.Email, "", new { @class = "text-danger" })
+                    </div>
+
+                    <!-- Số điện thoại -->
+                    <div class="form-group mb-3">
+                        @Html.LabelFor(m => m.SoDienThoai, "Số điện thoại:", htmlAttributes: new { @class = "form-label" })
+                        @Html.TextBoxFor(m => m.SoDienThoai, new { @class = "form-control", @placeholder = "Nhập số điện thoại", type = "tel", required = "required" })
+                        @Html.ValidationMessageFor(m => m.SoDienThoai, "", new { @class = "text-danger" })
+                    </div>
+
+                    <!-- Mật khẩu -->
+                    <div class="form-group mb-3">
+                        @Html.LabelFor(m => m.MatKhau, "Mật khẩu:", htmlAttributes: new { @class = "form-label" })
+                        @Html.PasswordFor(m => m.MatKhau, new { @class = "form-control", @placeholder = "Nhập mật khẩu", required = "required" })
+                        @Html.ValidationMessageFor(m => m.MatKhau, "", new { @class = "text-danger" })
+                    </div>
+
+                    <!-- Vai trò -->
+                    <div class="form-group mb-3">
+                        @Html.LabelFor(m => m.VaiTro, "Vai trò:", htmlAttributes: new { @class = "form-label" })
+                        @Html.DropDownListFor(m => m.VaiTro,
+                            new List<SelectListItem>
+                            {
+                                new SelectListItem { Value = "BanHang", Text = "Bán Hàng" },
+                                new SelectListItem { Value = "QuanLy", Text = "Quản Lý" }
+                            },
+                            "Chọn vai trò",
+                            new { @class = "form-control", required = "required" })
+                        @Html.ValidationMessageFor(m => m.VaiTro, "", new { @class = "text-danger" })
+                    </div>
+
+                    <div class="d-grid gap-2">
+                        <button type="submit" class="btn btn-primary btn-block">Lưu thay đổi</button>
+                        <a href="@Url.Action("Index", "NhanVien")" class="btn btn-secondary mt-2">Hủy bỏ</a>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>

@@ -1,0 +1,28 @@
+﻿@model DTO.DanhMucSanPham
+@{
+    ViewBag.Title = "Xác nhận xóa danh mục sản phẩm";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutPage1_Admin.cshtml";
+}
+
+<div class="card">
+    <div class="card-body" style="margin-top: 60px">
+        <h2 class="my-4 text-center">Xác nhận xóa danh mục sản phẩm</h2>
+
+        <dl class="row">
+            <dt class="col-sm-3">Tên danh mục:</dt>
+            <dd class="col-sm-9">@Model.TenDanhMuc</dd>
+
+            <dt class="col-sm-3">Mô tả:</dt>
+            <dd class="col-sm-9">@Model.MoTa</dd>
+        </dl>
+
+        <form asp-action="XacNhanXoaDanhMucSanPham" method="post">
+            @Html.AntiForgeryToken()
+            <input type="hidden" name="id" value="@Model.MaDanhMuc" />
+            <div class="d-grid gap-2">
+                <button type="submit" class="btn btn-danger">Xóa danh mục</button>
+                <a href="@Url.Action("DanhMucSanPham", "SanPham")" class="btn btn-secondary">Hủy bỏ</a>
+            </div>
+        </form>
+    </div>
+</div>

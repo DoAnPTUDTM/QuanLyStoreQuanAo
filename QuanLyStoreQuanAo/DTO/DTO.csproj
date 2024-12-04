@@ -54,6 +54,7 @@
       <DependentUpon>QLSHOPQUANAO.dbml</DependentUpon>
     </Compile>
     <Compile Include="SanPhamDTO.cs" />
+    <Compile Include="SanPhamDTOWEB.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />

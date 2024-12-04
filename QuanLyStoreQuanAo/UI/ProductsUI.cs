@@ -34,9 +34,7 @@ namespace UI
         private string pMaSP;
         private Image pAnh;
         private string pTenSP;
-        private string pGiaGiamSP;
         private string pGiaSP;
-        private string pKhuyenMai;
         private string pSLTon;
 
         [Category("Custom Product")]
@@ -61,13 +59,6 @@ namespace UI
         }
 
         [Category("Custom Product")]
-        public string PGiaGiamSP
-        {
-            get { return pGiaGiamSP; }
-            set { pGiaGiamSP = value; lbGiaSP.Text = value; }
-        }
-
-        [Category("Custom Product")]
         public string PGiaSP
         {
             get { return pGiaSP; }
@@ -83,16 +74,14 @@ namespace UI
 
         private void HideLabel()
         {
-            //if (lbKhuyenMai.Text == string.Empty)
-            //{
-            //    lbGiaSP.Visible = false;
-            //    lbKhuyenMai.Visible = false;
-            //}
-            //else
-            //{
-            //    lbGiaSP.Visible = true;
-            //    lbKhuyenMai.Visible = true;
-            //}
+            if (string.IsNullOrEmpty(lbGiaSP.Text))
+            {
+                lbGiaSP.Visible = false;
+            }
+            else
+            {
+                lbGiaSP.Visible = true;
+            }
         }
     }
 }

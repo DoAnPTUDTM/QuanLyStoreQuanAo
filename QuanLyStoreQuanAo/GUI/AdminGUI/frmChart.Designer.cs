@@ -32,7 +32,6 @@
             System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
             System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.chartBill = new System.Windows.Forms.DataVisualization.Charting.Chart();
-            this.cboYear = new Guna.UI2.WinForms.Guna2ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.chartBill)).BeginInit();
             this.SuspendLayout();
             // 
@@ -55,29 +54,12 @@
             this.chartBill.TabIndex = 0;
             this.chartBill.Text = "chart1";
             // 
-            // cboYear
-            // 
-            this.cboYear.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.cboYear.BackColor = System.Drawing.Color.Transparent;
-            this.cboYear.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            this.cboYear.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cboYear.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.cboYear.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.cboYear.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cboYear.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
-            this.cboYear.ItemHeight = 30;
-            this.cboYear.Location = new System.Drawing.Point(741, 27);
-            this.cboYear.Name = "cboYear";
-            this.cboYear.Size = new System.Drawing.Size(331, 36);
-            this.cboYear.TabIndex = 1;
-            // 
             // frmChart
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1100, 673);
-            this.Controls.Add(this.cboYear);
             this.Controls.Add(this.chartBill);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frmChart";
@@ -90,6 +72,5 @@
         #endregion
 
         private System.Windows.Forms.DataVisualization.Charting.Chart chartBill;
-        private Guna.UI2.WinForms.Guna2ComboBox cboYear;
     }
 }

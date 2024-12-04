@@ -1,0 +1,129 @@
+﻿@model List<DTO.DonHang>
+@{
+    ViewBag.Title = "Quản lý đơn hàng";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutPage1_Admin.cshtml";
+
+    <style>
+        #searchBox {
+            background-color: #f8f9fa;
+            border: 2px solid #007bff;
+            border-radius: 0.375rem;
+            transition: border-color 0.3s ease;
+        }
+
+            #searchBox:focus {
+                border-color: #0056b3;
+                box-shadow: 0 0 0 0.2rem rgba(38, 143, 255, 0.25);
+            }
+    </style>
+}
+
+<div class="card">
+    <div class="card-body">
+        <div class="row mb-4">
+            <div class="col-lg-8">
+                <form method="get" action="@Url.Action("Index", "DonHang", new { area = "Admin" })" class="d-flex">
+                    <input type="text" name="search" id="searchBox" class="form-control" placeholder="Tìm kiếm theo mã đơn hàng..." value="@ViewBag.Search" />
+                </form>
+            </div>
+            <div class="col-md-4 d-flex justify-content-end">
+                <a href="@Url.Action("TaoDonHang", "DonHang")" class="btn btn-primary">
+                    <i class="anticon anticon-plus-circle mr-2"></i> Thêm đơn hàng
+                </a>
+            </div>
+        </div>
+
+        <div class="table-responsive">
+            <table class="table table-hover e-commerce-table">
+                <thead>
+                    <tr>
+                        <th>Mã Đơn Hàng</th>
+                        <th>Tên Khách Hàng</th>
+                        <th>Ngày Đặt Hàng</th>
+                        <th>Trạng Thái</th>
+                        <th>Tổng Tiền</th>
+                        <th>Phương Thức Thanh Toán</th>
+                        <th>Địa Chỉ Giao Hàng</th>
+                        <th>Hành Động</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>@item.MaDonHang</td>
+                            <td>@item.KhachHang.HoTen</td>
+                            <td>
+                                @(item.NgayDatHang.HasValue ? item.NgayDatHang.Value.ToString("dd/MM/yyyy") : "N/A")
+                            </td>
+                            <td>
+                                @switch (item.TrangThai)
+                                {
+                                    case "DaHuy":
+                                        <text>Đã Hủy</text>
+                                        break;
+                                    case "DaNhan":
+                                        <text>Đã Nhận</text>
+                                        break;
+                                    case "DaGiao":
+                                        <text>Đã Giao</text>
+                                        break;
+                                    case "DangXuLy":
+                                        <text>Đang Xử Lý</text>
+                                        break;
+                                    case "ChoXuLy":
+                                        <text>Chờ Xử Lý</text>
+                                        break;
+                                    default:
+                                        <text>N/A</text>
+                                        break;
+                                }
+                            </td>
+                            <td>@(item.TongTien.HasValue ? item.TongTien.Value.ToString("#,##0 VNĐ") : "0 VNĐ")</td>
+                            <td>
+                                @switch (item.PhuongThucThanhToan)
+                                {
+                                    case "The":
+                                        <text>Thẻ</text>
+                                        break;
+                                    case "TienMat":
+                                        <text>Tiền mặt</text>
+                                        break;
+                                }
+                            </td>
+                            <td>@item.DiaChiGiaoHang</td>
+                            <td>
+                                <a href="@Url.Action("SuaDonHang", "DonHang", new { id = item.MaDonHang })" class="btn btn-icon btn-sm btn-warning">
+                                    <i class="anticon anticon-edit"></i>
+                                </a>
+                                <a href="@Url.Action("XoaDonHang", "DonHang", new { id = item.MaDonHang })" class="btn btn-icon btn-sm btn-danger">
+                                    <i class="anticon anticon-delete"></i>
+                                </a>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+
+            <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+            <script>
+                $(document).ready(function () {
+                    $("#searchBox").on("input", function () {
+                                        var searchTerm = $(this).val(); // Lấy giá trị từ ô tìm kiếm
+                        $.ajax({
+                                        url: '@Url.Action("Index", "DonHang", new { area = "Admin" })', // Đường dẫn đến action Index
+                            type: 'GET',
+                            data: { search: searchTerm }, // Truyền từ khóa tìm kiếm vào action
+                            success: function (data) {
+                                // Thay đổi nội dung của bảng với kết quả tìm kiếm mới
+                                $("tbody").html($(data).find("tbody").html());
+                                            }
+                                        });
+                    });
+                });
+            </script>
+        </div>
+    </div>
+</div>
+
