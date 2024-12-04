@@ -16,7 +16,7 @@ namespace WebApplication2
             routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
-                defaults: new { controller = "Customer", action = "SignIn", id = UrlParameter.Optional }
+                defaults: new { controller = "ChatBot", action = "Index", id = UrlParameter.Optional }
             );
         }
     }

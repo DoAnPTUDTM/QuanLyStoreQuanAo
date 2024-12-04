@@ -1,0 +1,274 @@
+﻿
+@model WebApplication2.ViewModel.ChatBorVM
+@{
+    ViewBag.Title = "Index";
+}
+
+<html>
+<head>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet" />
+    <style>
+        .message-content {
+            height: 400px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .message-content-sugesstion {
+        }
+
+        #chatbot {
+            width: 400px;
+        }
+
+        .message-content-area-answer {
+            display: flex;
+            justify-content: start;
+        }
+
+        .message-content-area-question {
+            display: flex;
+            text-align: right;
+            justify-content: end;
+        }
+
+        .icon {
+            height: 40px;
+            width: 40px;
+            border-radius: 50%;
+        }
+
+        #custom-question {
+            width:350px;
+        }
+
+        .icon-chat {
+            width: 70px;
+            height: 70px;
+        }
+        .message-content-area {
+            width: 100%; /* Hoặc chiều rộng cụ thể như 400px */
+            height: 300px; /* Chiều cao khung */
+            overflow-y: auto; /* Thanh cuộn dọc */
+            overflow-x: hidden; /* Ẩn thanh cuộn ngang (nếu có) */
+            /*border: 1px solid #ccc;*/ /* Viền cho khung */
+            /*padding: 10px;
+            border-radius: 5px;*/ /* Bo góc */
+            /*background-color: #f9f9f9*/
+        }
+        .group-suggestion{
+            display:flex;
+            flex-direction:row;
+            flex-wrap:wrap;
+            justify-content:center;
+        }
+    </style>
+</head>
+<body class="bg-gray-100">
+    <!-- Nút bật/tắt Chatbot -->
+    <button id="toggleChatbot" class="fixed bottom-4 right-4 text-white rounded-full shadow-lg z-50">
+        <div class="icon-chat"><img src="../Image/chatboticon2.png" /></div>
+    </button>
+
+    <!-- Chatbot -->
+    <div id="chatbot" class="fixed bottom-4 right-4 w-80 bg-white rounded-lg shadow-lg hidden z-40">
+        <!-- Header -->
+        <div class="bg-green-500 p-4 rounded-t-lg flex items-center justify-between " >
+            <div class="flex items-center">
+                <img alt="Airplane logo" class="w-8 h-8 rounded-full" src="https://storage.googleapis.com/a1aa/image/6SliXHGYSbohPNGPtuw6f76ht3e3xkdEOgEw0PeTSETq42tnA.jpg" />
+                <span class="ml-2 text-white font-semibold">Famishop</span>
+            </div>
+            <button id="closeChatbot" class="text-white">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+
+        <!-- Body -->
+        <div class="pt-4 ps-4 pb-4 message-content">
+            <div class="message-content-area" id="messageBox">
+                @foreach (var chat in Model.lstLichSuChat)
+                {
+
+                    <div class="message-content-area-question" id="message-content-area-question">
+                        <div class="bg-gray-100 p-3 rounded-lg mb-4" style=" max-width: 70%;">
+                            <div class="message"><p>@chat.TinNhan</p></div>
+                        </div>
+                        <div class="icon"><img src="../Image/usericon.png" /></div>
+                    </div>
+                    <div class="message-content-area-answer" id="message-content-area-answer">
+                        <div class="icon"><img src="../Image/chatboticon.png" /></div>
+                        <div class="bg-gray-100 p-3 rounded-lg mb-4" style=" max-width: 70%;">
+                            <div class="message">
+                                <p>@chat.PhanHoi</p>
+
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+            <div class="message-content-sugesstion">
+                <div class="grid grid-cols-2 gap-2 group-suggestion">
+
+                    @foreach (var item in Model.lstSuggestion)
+                    {
+                        <form method="post" action="#" id="chatbotform2">
+                            <input style="width: 360px" class="flex-1 p-2 border ps-5 rounded-lg" id="script-question"  type="text" name="userInput" value="@item"  hidden/>
+                            <button class="border border-green-500 text-green-500 rounded-lg py-2 px-4" type="submit" onclick="sendMessage2()" id="buttonsendsug ">@item</button>
+
+                            
+                        </form>
+                    }
+                    </div>
+            </div>
+        </div>
+        <input type="text" value="@ViewBag.Message" id="response" hidden />
+        <!-- Footer -->
+        <form method="post" action="#" id="chatbotform">
+            <div class="border-t p-2 flex items-center" style="width: 100%;">
+                <input style="width: 360px" class="flex-1 p-2 border ps-5 rounded-lg" id="custom-question" placeholder="Type your message here.." type="text" name="userInput" />
+                <button type="submit" id="button-post" onclick="sendMessage()"><i class="fas fa-paper-plane text-gray-500 ml-2"></i></button>
+            </div>
+
+
+        </form>
+
+    </div>
+
+    <script>
+        //document.addEventListener("DOMContentLoaded", function () {
+        //    const chatbot = document.getElementById('chatbot');
+        //    chatbot.classList.remove('hidden');
+        //});
+      
+        document.getElementById('toggleChatbot').addEventListener('click', function () {
+            const chatbot = document.getElementById('chatbot');
+            chatbot.classList.remove('hidden'); 
+            this.classList.add('hidden');
+            scrollToBottom();
+        });
+
+        
+        document.getElementById('closeChatbot').addEventListener('click', function () {
+            const chatbot = document.getElementById('chatbot');
+            chatbot.classList.add('hidden'); 
+            const toggleChatbot = document.getElementById('toggleChatbot');
+            toggleChatbot.classList.remove('hidden'); 
+        });
+
+      
+        const userQuestion = document.getElementById('message-content-area-question');
+        const botAnswer = document.getElementById('message-content-area-answer');
+        const buttonpost = document.getElementById('button-post');
+        const input = document.getElementById('custom-question');
+        const chatbotform = document.getElementById('chatbotform');
+        const response = document.getElementById('response');
+        const chatbotform2 = document.getElementById('chatbotform2');
+        const input2 = document.getElementById('script-question');
+        input.addEventListener("input", function () {
+           
+            if (input.value.trim() !== "") {
+              
+                buttonpost.disabled = false;
+               
+               
+            } else {
+                
+                buttonpost.disabled = true;
+               ;
+            }
+        });
+       
+        function scrollToBottom() {
+            const messageBox = document.getElementById('messageBox');
+            messageBox.scrollTop = messageBox.scrollHeight;
+        }
+        // Gửi tin nhắn và cập nhật giao diện
+        function sendMessage() {
+            // Lấy dữ liệu từ input
+            const userMessage = input.value.trim();
+
+            if (userMessage === "") {
+                return; // Nếu không có dữ liệu, không gửi tin nhắn
+            }
+
+            // Hiển thị tin nhắn của người dùng
+            userQuestion.innerHTML = `
+        <div class="bg-gray-100 p-3 rounded-lg mb-4">
+            <div class="message">
+                <p>${userMessage}</p>
+            </div>
+        </div>
+        <div class="icon">
+            <img src="../Image/usericon.png" alt="User Icon" />
+        </div>
+    `;
+
+             //Gửi tin nhắn tới Controller thông qua AJAX
+            //$.ajax({
+            //    type: 'POST',
+            //    url: '/Chatbot/Index',  // URL của action controller
+            //    data: { userInput: userMessage },  // Gửi dữ liệu người dùng
+            //    success: function (response) {
+                    // Khi nhận được phản hồi từ server, hiển thị tin nhắn của bot
+                    
+
+            // Sau khi gửi xong, xóa input
+            chatbotform.submit()
+            input.value = "";
+            buttonpost.disabled = true;
+            //buttonpost.classList.remove('bg-blue-500');
+            //buttonpost.classList.add('bg-gray-500');
+          
+        }
+        // Thêm sự kiện cho nút gửi tin nhắn
+        document.getElementById('sendMessageButton').addEventListener('click', function () {
+            sendMessage();
+        });
+        function sendMessage2() {
+            // Lấy dữ liệu từ input
+          
+            const userMessage = input2.value.trim();
+
+            if (userMessage == "") {
+              
+                return; // Nếu không có dữ liệu, không gửi tin nhắn
+            }
+
+            // Hiển thị tin nhắn của người dùng
+            userQuestion.innerHTML = `
+    <div class="bg-gray-100 p-3 rounded-lg mb-4">
+        <div class="message">
+            <p>${userMessage}</p>
+        </div>
+    </div>
+    <div class="icon">
+        <img src="../Image/usericon.png" alt="User Icon" />
+    </div>
+`;
+
+            //Gửi tin nhắn tới Controller thông qua AJAX
+            //$.ajax({
+            //    type: 'POST',
+            //    url: '/Chatbot/Index',  // URL của action controller
+            //    data: { userInput: userMessage },  // Gửi dữ liệu người dùng
+            //    success: function (response) {
+            // Khi nhận được phản hồi từ server, hiển thị tin nhắn của bot
+
+
+            // Sau khi gửi xong, xóa input
+            chatbotform2.submit()
+            input.value = "";
+            //buttonpost.disabled = true;
+            //buttonpost.classList.remove('bg-blue-500');
+            //buttonpost.classList.add('bg-gray-500');
+
+        }
+        // Thêm sự kiện cho nút gửi tin nhắn
+        document.getElementById('buttonsendsug').addEventListener('click', function () {
+            sendMessage2();
+        });
+    </script>
+</body>
+</html>

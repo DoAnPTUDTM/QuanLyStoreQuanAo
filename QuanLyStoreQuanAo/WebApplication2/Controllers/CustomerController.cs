@@ -36,36 +36,37 @@ namespace GUIWEB.Controllers
         {
             return View();
         }
+        [HttpPost]
+        public ActionResult Register(FormCollection form)
+        {
+            var khachHang = new KhachHang
+            {
 
-        //public ActionResult Register(FormCollection form)
-        //{
-        //    var khachHang = new KhachHang
-        //    {
+                HoTen = form["HoTen"],
+                Email = form["Email"],
+                SoDienThoai = form["SoDienThoai"],
+                MatKhau = form["MatKhau"],
 
-        //        HoTen = form["HoTen"],
-        //        Email = form["Email"],
-        //        SoDienThoai = form["SoDienThoai"],
-        //        MatKhau= form["MatKhau"],
+            };
 
-        //    };
-
-        //    var confirmPassword = form["confirmpassword"];
-        //    if (confirmPassword != khachHang.MatKhau)
-        //    {
-        //        ModelState.AddModelError("ConfirmPassword", "Mật khẩu không khớp.");
-        //      return View();
-        //    }
-        //   string kq= bus.register(khachHang);
-        //    if (kq == "true")
-        //    {
-        //        return RedirectToAction("Customer", "SignIn");
-        //    }
-        //    else if(kq == "number") 
-        //    {
-        //        ModelState.AddModelError("SoDienThoai", "Số điện thoại không hợp lệ");
-        //        return View();
-        //    }
-        //}
+            var confirmPassword = form["confirmpassword"];
+            if (confirmPassword != khachHang.MatKhau)
+            {
+                ModelState.AddModelError("ConfirmPassword", "Mật khẩu không khớp.");
+                return View();
+            }
+            string kq = bus.register(khachHang);
+            if (kq == "true")
+            {
+                return RedirectToAction("SignIn", "Customer");
+            }
+            else if (kq == "number")
+            {
+                ModelState.AddModelError("SoDienThoai", "Số điện thoại không hợp lệ");
+                return View();
+            }
+            return View();
+        }
 
 
     }
